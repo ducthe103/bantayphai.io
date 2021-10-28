@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "Brivium_ModernStatistics",
+    "title": "[BR] Modern Statistics",
+    "description": "Add-on provides for you an amazing tool of statistic in your site/forum. Users could see and follow to hot trend or update the newest information on that.",
+    "version_id": 3010072,
+    "version_string": "3.1.0",
+    "dev": "Brivium",
+    "dev_url": "https://brivium.com/",
+    "faq_url": "http://brivium.com/faqs",
+    "support_url": "http://brivium.com/support-tickets/list",
+    "extra_urls": [],
+    "require": [],
+    "icon": "icon.png"
+}

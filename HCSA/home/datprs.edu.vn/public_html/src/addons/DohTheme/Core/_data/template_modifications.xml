@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="admin" template="category_edit" modification_key="category_edit" description="category_edit" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="node_edit_macros" name="description" arg-node="{$node}" />]]></find>
+    <replace><![CDATA[$0
+<xf:textboxrow name="node[node_background]" 
+				   value="{$node.node_background}" 
+				   label="{{ phrase('node_background') }}"
+				   />]]></replace>
+  </modification>
+  <modification type="admin" template="forum_edit" modification_key="forum_edit" description="forum_edit" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="node_edit_macros" name="description" arg-node="{$node}" />]]></find>
+    <replace><![CDATA[$0
+<xf:textboxrow name="node[node_background]" 
+				   value="{$node.node_background}" 
+				   label="{{ phrase('node_background') }}"
+				   />]]></replace>
+  </modification>
+  <modification type="admin" template="link_forum_edit" modification_key="link_forum_edit" description="link_forum_edit" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="node_edit_macros" name="description" arg-node="{$node}" />]]></find>
+    <replace><![CDATA[$0
+<xf:textboxrow name="node[node_background]" 
+				   value="{$node.node_background}" 
+				   label="{{ phrase('node_background') }}"
+				   />]]></replace>
+  </modification>
+  <modification type="public" template="node_list_category" modification_key="node_list_category_last_post_avatar" description="node_list_category_last_post_avatar" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="node-extra">]]></find>
+    <replace><![CDATA[$0
+<xf:if is="{{ property('nodeList_lastpost_avatar') }}">
+<xf:if is="$extras.lastPostUser || $extras.last_post_username">
+	<xf:css src="reme_core.less" />
+	<div class="lastpost--avatar">
+		<xf:avatar user="{{ {'user_id': $extras.last_post_user_id}}} " size="xs" defaultname="{$defaultName}" />
+	</div>
+</xf:if>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="node_list_forum" modification_key="node_list_forum_last_post_avatar" description="node_list_forum_last_post_avatar" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="node-extra">]]></find>
+    <replace><![CDATA[$0
+<xf:if is="{{ property('nodeList_lastpost_avatar') }}">
+<xf:if is="$extras.lastPostUser || $extras.last_post_username">
+	<xf:css src="reme_core.less" />
+	<div class="lastpost--avatar">
+		<xf:avatar user="{{ {'user_id': $extras.last_post_user_id}}} " size="xs" defaultname="{$defaultName}" />
+	</div>
+</xf:if>
+</xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="thread_list_macros" modification_key="thread_list_macros_last_post_avatar" description="thread_list_macros_last_post_avatar" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="structItem-cell structItem-cell--latest">]]></find>
+    <replace><![CDATA[$0
+<xf:if is="{{ property('discussionList_lastpost_avatar') }}">
+<xf:if is="$thread.last_post_user_id">
+	<xf:css src="reme_core.less" />
+	<div class="lastpost--avatar">
+		<xf:avatar user="{{ {'user_id': $thread.last_post_user_id}}} " size="xs" defaultname="{$defaultName}" />
+	</div>
+</xf:if>
+</xf:if>]]></replace>
+  </modification>
+</template_modifications>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="ahGPBattlenetHeight" group_name="ah_gamerprofiles" title="Battle.net icon height" description="This refers to the height of the Battle.net icon. The Battle.net icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Battle.net icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1003">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPBattlenetWidth" group_name="ah_gamerprofiles" title="Battle.net icon width" description="This refers to the width of the Battle.net icon. The Battle.net icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Battle.net icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1004">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPColorBattlenet" group_name="ah_gamerprofiles" title="Battle.net icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2004">
+    <value>"#0288D1"</value>
+  </style_property>
+  <style_property property_name="ahGPColorDiscord" group_name="ah_gamerprofiles" title="Discord icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2008">
+    <value>"#7289DA"</value>
+  </style_property>
+  <style_property property_name="ahGPColorEpicGames" group_name="ah_gamerprofiles" title="Epic Games icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2005">
+    <value>"#000000"</value>
+  </style_property>
+  <style_property property_name="ahGPColorFacebook" group_name="ah_gamerprofiles" title="Facebook icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2012">
+    <value>"#3B5998"</value>
+  </style_property>
+  <style_property property_name="ahGPColorMixer" group_name="ah_gamerprofiles" title="Mixer icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2009">
+    <value>"#21B9EC"</value>
+  </style_property>
+  <style_property property_name="ahGPColorOculus" group_name="ah_gamerprofiles" title="Oculus icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2006">
+    <value>"#000000"</value>
+  </style_property>
+  <style_property property_name="ahGPColorOrigin" group_name="ah_gamerprofiles" title="Origin icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2003">
+    <value>"#FF6E40"</value>
+  </style_property>
+  <style_property property_name="ahGPColorPlayStation" group_name="ah_gamerprofiles" title="PlayStation icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2000">
+    <value>"#003087"</value>
+  </style_property>
+  <style_property property_name="ahGPColorSecondLife" group_name="ah_gamerprofiles" title="Second Life icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2007">
+    <value>"#000000"</value>
+  </style_property>
+  <style_property property_name="ahGPColorSkype" group_name="ah_gamerprofiles" title="Skype icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2013">
+    <value>"#00AFF0"</value>
+  </style_property>
+  <style_property property_name="ahGPColorSteam" group_name="ah_gamerprofiles" title="Steam icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2002">
+    <value>"#000000"</value>
+  </style_property>
+  <style_property property_name="ahGPColorTwitch" group_name="ah_gamerprofiles" title="Twitch icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2010">
+    <value>"#6441A5"</value>
+  </style_property>
+  <style_property property_name="ahGPColorTwitter" group_name="ah_gamerprofiles" title="Twitter icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2014">
+    <value>"#1DA1F2"</value>
+  </style_property>
+  <style_property property_name="ahGPColorXbox" group_name="ah_gamerprofiles" title="Xbox icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2001">
+    <value>"#52B043"</value>
+  </style_property>
+  <style_property property_name="ahGPColorYouTube" group_name="ah_gamerprofiles" title="YouTube icon color" property_type="value" value_type="color" value_group="IconColors" display_order="2011">
+    <value>"#FF0000"</value>
+  </style_property>
+  <style_property property_name="ahGPEpicGamesHeight" group_name="ah_gamerprofiles" title="Epic Games icon height" description="This refers to the height of the Epic Games icon. The Epic Games icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Epic Games icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1005">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPEpicGamesWidth" group_name="ah_gamerprofiles" title="Epic Games icon width" description="This refers to the width of the Epic Games icon. The Epic Games icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Epic Games icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1006">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPGamerCardMargin" group_name="ah_gamerprofiles" title="Gamer card margin-top" description="This adjusts the margin-top property of the gamer card popup. You may have to adjust this depending on how you decide to style the icons in the postbit." property_type="value" value_type="unit" display_order="300">
+    <value>"-150px"</value>
+  </style_property>
+  <style_property property_name="ahGPIconFontSize" group_name="ah_gamerprofiles" title="Icon font size" property_type="value" value_type="unit" value_group="IconDimensions" display_order="1000">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPIconsContainer" group_name="ah_gamerprofiles" title="Icons container" description="Affects all icons regardless of placement" property_type="css" display_order="20000" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>[]</value>
+  </style_property>
+  <style_property property_name="ahGPMemberTooltip" group_name="ah_gamerprofiles" title="Member tooltip container" description="Only affects icons in the member tooltip container" property_type="css" display_order="22000" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>[]</value>
+  </style_property>
+  <style_property property_name="ahGPMessage" group_name="ah_gamerprofiles" title="Message user info container" description="Only affects icons in the message user info" property_type="css" display_order="21000" css_components="text,background,border,border_radius,border_width_simple,border_color_simple,border_radius_simple,padding,extra">
+    <value>{
+    "padding-top": "10px",
+    "extra": "dislay: flex;\nflex-wrap: wrap;\njustify-content: space-between;\nalign-items: center;"
+}</value>
+  </style_property>
+  <style_property property_name="ahGPMixerHeight" group_name="ah_gamerprofiles" title="Mixer icon height" description="This refers to the height of the Mixer icon. The Mixer icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Mixer icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1011">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPMixerWidth" group_name="ah_gamerprofiles" title="Mixer icon width" description="This refers to the width of the Mixer icon. The Mixer icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Mixer icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1012">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPOculusHeight" group_name="ah_gamerprofiles" title="Oculus icon height" description="This refers to the height of the Oculus icon. The Oculus icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Oculus icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1007">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPOculusWidth" group_name="ah_gamerprofiles" title="Oculus icon width" description="This refers to the width of the Oculus icon. The Oculus icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Oculus icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1008">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPOriginHeight" group_name="ah_gamerprofiles" title="Origin icon height" description="This refers to the height of the Origin icon. The Origin icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Origin icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1001">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPOriginWidth" group_name="ah_gamerprofiles" title="Origin icon width" description="This refers to the width of the Origin icon. The Origin icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Origin icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1002">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPSecondLifeHeight" group_name="ah_gamerprofiles" title="Second Life icon height" description="This refers to the height of the Second Life icon. The Second Life icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Second Life icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1010">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPSecondLifeWidth" group_name="ah_gamerprofiles" title="Second Life icon width" description="This refers to the width of the Second Life icon. The Second Life icon is an SVG, not a FontAwesome Icon, so the &quot;Icon font size&quot; property has no effect on the Second Life icon." property_type="value" value_type="unit" value_group="IconDimensions" display_order="1009">
+    <value>"19px"</value>
+  </style_property>
+  <style_property property_name="ahGPStatus" group_name="ah_gamerprofiles" title="Status" description="The elements selected here will be displayed in the message user info and member tooltip." property_type="value" value_type="template" display_order="100">
+    <value_parameters>template=style_property_template_ah_gamerprofiles_status
+type=array</value_parameters>
+    <value>{
+    "ah_playstation": "1",
+    "ah_xbox": "1",
+    "ah_steam": "1",
+    "ah_origin": "1",
+    "ah_battlenet": "1",
+    "ah_epicgames": "1",
+    "ah_oculus": "1",
+    "ah_secondlife": "1",
+    "ah_discord": "1",
+    "ah_twitch": "1",
+    "ah_mixer": "1",
+    "ah_youtube": "1",
+    "facebook": "1",
+    "twitter": "1",
+    "skype": "1"
+}</value>
+  </style_property>
+  <style_property property_name="ahGPTooltip" group_name="ah_gamerprofiles" title="Display gamer profiles in member tooltip" property_type="value" value_type="boolean" display_order="200">
+    <value>1</value>
+  </style_property>
+</style_properties>

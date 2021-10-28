@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="CMTV_Code_code_block_max_height" group_name="bbCode" title="Code block max height" property_type="value" value_type="unit" value_group="CMTV_Code_bbCodeCodeBlock" display_order="200">
+    <value_parameters>px</value_parameters>
+    <value>"300px"</value>
+  </style_property>
+</style_properties>

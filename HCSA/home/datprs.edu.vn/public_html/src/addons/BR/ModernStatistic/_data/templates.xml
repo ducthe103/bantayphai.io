@@ -1,0 +1,2047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="brms_modern_statistic_delete" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('brms_delete_modern_statistic') }}</xf:title>
+
+<xf:form action="{{ link('brms-statistics/delete', $modernStatistic) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+				<strong><a href="{{ link('brms-statistics/edit', $modernStatistic) }}">{$modernStatistic.title}</a></strong>
+			</xf:inforow>
+		</div>
+		<xf:submitrow rowtype="simple" icon="delete" />
+	</div>
+	<xf:redirect />
+</xf:form>]]></template>
+  <template type="admin" title="brms_modern_statistic_edit" version_id="3000130" version_string="3.0.1"><![CDATA[<xf:if is="$modernStatistic.isInsert()">
+	<xf:title>{{ phrase('brms_add_modern_statistic') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('brms_edit_modern_statistic:') }} {$modernStatistic.title}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$modernStatistic.isUpdate()">
+	<xf:button href="{{ link('brms-statistics/delete', $modernStatistic) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+<xf:css src="brms_modern_statistic_edit.less" />
+<xf:js src="br/brms/options-tab.js" min="1" />
+
+<xf:form action="{{ link('brms-statistics/save', $modernStatistic) }}" ajax="true" class="block">
+	<div class="block-container">
+		<h2 class="block-tabHeader tabs hScroller" data-xf-init="tabs h-scroller"
+			role="tablist"
+			data-state="replace"
+			data-panes=".js-statisticTabPanes">
+			<span class="hScroller-scroll">
+				<!--[XF:tabs:start]-->
+				<a class="tabs-tab is-active" role="tab" tabindex="0" data-controls="statistic-information" id="statistic-information-tab">{{ phrase('brms_modern_statistic_information') }}</a>
+				<a class="tabs-tab" role="tab" tabindex="0" data-controls="statistic-condition" id="statistic-condition-tab">{{ phrase('brms_display_this_statistic_while') }}</a>
+				<a class="tabs-tab" role="tab" tabindex="0" data-controls="statistic-tabs" id="statistic-tabs-tab">{{ phrase('brms_tabs_data') }}</a>
+				<!--[XF:tabs:end]-->
+			</span>
+		</h2>
+
+		<ul class="tabPanes js-statisticTabPanes">
+			<li class="is-active" role="tabpanel" id="statistic-information">
+				<div class="block-body">
+					<xf:textboxrow name="title" value="{$modernStatistic.title}" class="input-productTitle"
+						label="{{ phrase('title') }}" />
+					<xf:checkboxrow>
+						<xf:option name="active" value="1" selected="$modernStatistic.active">
+							{{ phrase('brms_active') }}
+						</xf:option>
+					</xf:checkboxrow>
+
+					<xf:selectrow name="position" value="{$modernStatistic.position}"
+						label="{{ phrase('position') }}">
+						<xf:foreach loop="$advertisingPositions" key="{$positionId}" value="$advertisingPosition">
+							<xf:option value="ads:{$positionId}" label="{$advertisingPosition}" />
+						</xf:foreach>
+					</xf:selectrow>
+
+					<hr class="formRowSep" />
+					<xf:checkboxrow label="">
+						<xf:option name="usename_marke_up" label="{{ phrase('brms_username_make_up') }}" selected="{$modernStatistic.usename_marke_up}">
+							<xf:hint>{{ phrase('brms_username_make_up_explain') }}</xf:hint>
+						</xf:option>
+						<xf:option name="show_thread_prefix" label="{{ phrase('brms_show_thread_prefix') }}" selected="{$modernStatistic.show_thread_prefix}">
+							<xf:hint>{{ phrase('brms_show_thread_prefix_explain') }}</xf:hint>
+						</xf:option>
+						<xf:option name="show_resource_prefix" label="{{ phrase('brms_show_resource_prefix') }}" selected="{$modernStatistic.show_resource_prefix}">
+							<xf:hint>{{ phrase('brms_show_resource_prefix_explain') }}</xf:hint>
+						</xf:option>
+						<xf:option name="load_fisrt_tab" label="{{ phrase('brms_load_fisrt_tab_promptly') }}" selected="{$modernStatistic.load_fisrt_tab}">
+							<xf:hint>{{ phrase('brms_load_fisrt_tab_promptly_explain') }}</xf:hint>
+						</xf:option>
+					</xf:checkboxrow>
+
+					<xf:radiorow label="{{ phrase('brms_use_preview_tooltip') }}" name="preview_tooltip" value="{{ $modernStatistic.preview_tooltip ? $modernStatistic.preview_tooltip : 'custom_preview' }}">
+						<xf:option value="disable">{{ phrase('disable') }}</xf:option>
+						<xf:option value="thread_preview">{{ phrase('brms_thread_preview') }}</xf:option>
+						<xf:option value="custom_preview">{{ phrase('brms_custom_preview') }}</xf:option>
+						<xf:explain>{{ phrase('brms_use_preview_tooltip_explain') }}</xf:explain>
+					</xf:radiorow>
+
+					<hr class="formRowSep" />
+					<xf:numberboxrow label="{{ phrase('brms_thread_date_cut_off_default') }}" name="thread_cutoff" value="{$modernStatistic.thread_cutoff}" min="0" >
+						<xf:explain>{{ phrase('brms_thread_date_cut_off_default_explain') }}</xf:explain>
+					</xf:numberboxrow>
+
+					<xf:checkboxrow label="">
+						<xf:option label="{{ phrase('brms_tabs_cache_time') }}" name="enable_cache" selected="{$modernStatistic.enable_cache}">
+							<xf:dependent>
+								<xf:numberbox name="cache_time" value="{{ $modernStatistic.cache_time ? $modernStatistic.cache_time : 1 }}" min="1" step="1" />
+							</xf:dependent>
+						</xf:option>
+						<xf:explain>{{ phrase('brms_tabs_cache_time_explain') }}</xf:explain>
+					</xf:checkboxrow>
+
+					<xf:numberboxrow label="{{ phrase('brms_update_time') }}" name="auto_update" value="{$modernStatistic.auto_update}" min="0" >
+						<xf:explain>{{ phrase('brms_update_time_explain') }}</xf:explain>
+					</xf:numberboxrow>
+
+					<xf:checkboxrow label="{{ phrase('brms_item_limits') }}" hint="{{ phrase('brms_item_limits_explain') }}">
+						<xf:option name="item_limit[enabled]" value="1" selected="{$itemLimit.enabled}">
+							<xf:label>{{ phrase('enabled') }}</xf:label>
+							<xf:hint>{{ phrase('brms_allow_member_change_item_limit') }}</xf:hint>
+							<xf:dependent>
+								<ul class="inputList">
+									<xf:foreach loop="$itemLimit.value" key="$counter" value="$item">
+										<li class="u-inputSpacer">
+											<xf:textbox name="item_limit[value][]" value="{$item}" placeholder="{{ phrase('number') }}" size="20" />
+										</li>
+									</xf:foreach>
+									<li data-xf-init="brms-field-adder">
+										<xf:textbox name="item_limit[value][]" value="" placeholder="{{ phrase('number') }}" size="20" />
+									</li>
+								</ul>
+							</xf:dependent>
+						</xf:option>
+						<xf:html>
+							<ul class="inputChoices inputChoices--noChoice">
+								<li class="inputChoices-choice">
+									<div>{{ phrase('default:') }}</div>
+									<xf:numberbox name="item_limit[default]" value="{$itemLimit.default}" min="1" size="20" />
+								</li>
+							</ul>
+						</xf:html>
+					</xf:checkboxrow>
+				</div>
+				<h3 class="block-formSectionHeader">
+					<span class="block-formSectionHeader-aligner">{{ phrase('brms_style') }}</span>
+				</h3>
+				<div class="block-body">
+					<xf:radiorow label="{{ phrase('brms_control_navigation_position') }}" name="control_position" value="{{ $modernStatistic.control_position ? $modernStatistic.control_position :'brmsLeftTabs' }}">
+						<xf:option value="brmsLeftTabs">{{ phrase('left') }}</xf:option>
+						<xf:option value="brmsTopTabs">{{ phrase('top') }}</xf:option>
+						<xf:option value="brmsRightTabs">{{ phrase('right') }}</xf:option>
+						<xf:explain>{{ phrase('brms_control_navigation_position_explain') }}</xf:explain>
+					</xf:radiorow>
+
+					<xf:radiorow label="{{ phrase('brms_style_display') }}" name="style_display" value="{$modernStatistic.style_display}">
+						<xf:option value="">{{ phrase('brms_light') }}</xf:option>
+						<xf:option value="dark">{{ phrase('brms_dark') }}</xf:option>
+						<xf:explain>{{ phrase('brms_style_display_explain') }}</xf:explain>
+					</xf:radiorow>
+					<xf:if is="{$styleTree}">
+						<xf:formrow rowtype="input" label="{{ phrase('brms_style_for_board_style') }}">
+							<xf:foreach loop="$styleTree.getFlattened(0)" value="$treeEntry">
+								<dl class="inputLabelPair">
+									<dt><label for="brms_style_{$treeEntry.record.style_id}">{{ repeat('--', $treeEntry.depth) }} {$treeEntry.record.title}</label></dt>
+									<dd>
+										<xf:select id="brms_style_{$treeEntry.record.style_id}" name="style_settings[{$treeEntry.record.style_id}]" value="{$modernStatistic.style_settings.{$treeEntry.record.style_id}}">
+											<xf:option value="">{{ phrase('default') }}</xf:option>
+											<xf:option value="dark">{{ phrase('brms_dark') }}</xf:option>
+											<xf:option value="light">{{ phrase('brms_light') }}</xf:option>
+										</xf:select>
+									</dd>
+								</dl>
+							</xf:foreach>
+						</xf:formrow>
+					</xf:if>
+				</div>
+				<h3 class="block-formSectionHeader">
+					<span class="block-formSectionHeader-aligner">{{ phrase('brms_extra') }}</span>
+				</h3>
+				<div class="block-body">
+					<xf:checkboxrow label="">
+						<xf:option name="allow_user_setting" label="{{ phrase('brms_allow_member_setting') }}" selected="{$modernStatistic.allow_user_setting}">
+							<xf:hint>{{ phrase('brms_allow_member_setting_explain') }}</xf:hint>
+						</xf:option>
+
+						<xf:option name="allow_change_layout" label="{{ phrase('brms_allow_change_layout') }}" selected="{$modernStatistic.allow_change_layout}">
+							<xf:hint>{{ phrase('brms_allow_change_layout_explain') }}</xf:hint>
+						</xf:option>
+						<xf:option name="allow_manual_refresh" label="{{ phrase('brms_allow_manual_refresh') }}" selected="{$modernStatistic.allow_manual_refresh}">
+							<xf:hint>{{ phrase('brms_allow_manual_refresh_explain') }}</xf:hint>
+						</xf:option>
+					</xf:checkboxrow>
+				</div>
+			</li>
+			<li role="tabpanel" id="statistic-condition">
+				<div class="block-body">
+					<xf:textarearow name="modern_criteria[template_name]" value="{$modernStatistic.modern_criteria.template_name}" autosize="true"
+						label="{{ phrase('brms_template_title') }}"
+						explain="{{ phrase('brms_modern_criteria_template_name_explain') }}" />
+					<xf:selectrow name="modern_criteria[language_ids]"
+						value="{$modernStatistic.modern_criteria.language_ids}"
+						label="{{ phrase('language') }}" multiple="true">
+						<xf:option value="">({{ phrase('all') }})</xf:option>
+						<xf:foreach loop="$languageTree.getFlattened(0)" value="$treeEntry">
+							<xf:option value="{$treeEntry.record.language_id}">{{ repeat('--', $treeEntry.depth) }}
+								{$treeEntry.record.title}
+							</xf:option>
+						</xf:foreach>
+						<xf:explain>{{ phrase('brms_modern_criteria_language_ids_explain') }}</xf:explain>
+					</xf:selectrow>
+					<xf:selectrow name="modern_criteria[node_ids]" value="{$modernStatistic.modern_criteria.node_ids}"
+						size="15" multiple="true"
+						label="{{ phrase('brms_include_nodes') }}">
+						<xf:option value="">({{ phrase('all') }})</xf:option>
+						<xf:optgroup label="">
+							<xf:foreach loop="$nodes" value="$node">
+								<xf:option value="{$node.value}" label="{$node.label}" />
+							</xf:foreach>
+						</xf:optgroup>
+						<xf:explain>{{ phrase('brms_modern_criteria_node_ids_explain') }}</xf:explain>
+					</xf:selectrow>
+					<xf:selectrow name="modern_criteria[user_group_ids]"
+						value="{$modernStatistic.modern_criteria.user_group_ids}"
+						size="10" multiple="true"
+						label="{{ phrase('brms_exclude_groups') }}">
+						<xf:option value="">({{ phrase('none') }})</xf:option>
+						<xf:optgroup label="">
+							<xf:options source="$userGroups" />
+						</xf:optgroup>
+						<xf:explain>{{ phrase('brms_exclude_groups_explain') }}</xf:explain>
+					</xf:selectrow>
+				</div>
+			</li>
+			<li role="tabpanel" id="statistic-tabs">
+				<h3 class="block-formSectionHeader">
+					{{ phrase('brms_tabs_selector') }}
+
+					<xf:button class="button--link collapse"
+						data-xf-click="brms-collapse">
+						{{ phrase('brms_toggle_collapse') }}
+					</xf:button>
+				</h3>
+				<div class="listTabs">
+					<xf:if is="{$tabData}">
+					<xf:foreach loop="$tabData" i="$counter" key="$key" value="$tab">
+						<xf:include template="brms_modern_statistic_edit_tab">
+							<xf:set var="$counter" value="{$counter}" />
+						</xf:include>
+					</xf:foreach>
+					<xf:set var="$tabData" value="0" />
+					</xf:if>
+					<xf:include template="brms_modern_statistic_edit_tab">
+						<xf:set var="$brmsListener" value="1" />
+						<xf:map from="$defaultTabData" to="$tab" />
+						<xf:set var="$counter" value="{$nextCounter}" />
+					</xf:include>
+				</div>
+				<xf:formrow>
+					<xf:button class="button--link"
+						data-xf-click="brms-add-tab">
+						<i class="fa fa-plus" aria-hidden="true"></i> {{ phrase('brms_add_more_tab') }}
+					</xf:button>
+				</xf:formrow>
+			</li>
+		</ul>
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+</xf:form>]]></template>
+  <template type="admin" title="brms_modern_statistic_edit.less" version_id="1000030" version_string="1.0.0"><![CDATA[.sub-block-container{
+	margin: 10px;
+	.xf-blockBorder();
+	border-radius: @xf-blockBorderRadius;
+	.block-formSectionHeader{
+		border-top: none;
+	}
+}
+
+.displayOrder .input{
+	padding: 0;
+}
+
+.ctrlUnit > dd > * > li.sectionMain{
+	padding-left: 10px;
+}
+.hiddenContainer{
+}
+.tabFields{
+}
+.collapse{
+	float: right;
+}
+.displayOrder{
+	float: right;
+}
+.displayOrder .textCtrl.number{
+	width: 50px;
+}
+.tabHeader{
+	display: inline-block;
+}
+.collapse-button{
+	padding: 0 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+.fa-minus-square-o:before {
+	content: "\f147";
+}
+.collapsed .fa-minus-square-o:before {
+	content: "\f196";
+}
+.brmsTab.collapsed .block-body{
+	display: none;
+}]]></template>
+  <template type="admin" title="brms_modern_statistic_edit_tab" version_id="3010071" version_string="3.1.0"><![CDATA[<div class="sub-block-container brmsTab" data-xf-init="brms-tab">
+	<h3 class="block-formSectionHeader">
+		<span class="collapse-button"><i class="far fa-minus-square" aria-hidden="true"></i></span>
+		<span class="block-formSectionHeader-aligner tabHeader"></span>
+		<div class="displayOrder"><xf:numberbox name="tab_data[{$counter}][display_order]" value="{$tab.display_order}" class="orderValue input--numberNarrow" /></div>
+	</h3>
+	<div class="block-body hideParent">
+		<xf:selectrow label="{{ phrase('brms_tab_type') }}" name="tab_data[{$counter}][kind]" class="autoSize hiddenSelector tabKind" value="{$tab.kind|raw}" >
+			<xf:option value="">{{ phrase('none') }}</xf:option>
+			<xf:options source="{$listKinds}" />
+		</xf:selectrow>
+		<xf:textboxrow label="{{ phrase('title') }}" name="tab_data[{$counter}][title]" value="{$tab.title}" placeholder="{{ phrase('title') }}" size="20" />
+		<xf:checkboxrow label="">
+			<xf:option name="tab_data[{$counter}][active]" value="1" selected="{$tab.active}">{{ phrase('brms_active') }}</xf:option>
+		</xf:checkboxrow>
+		<div class="tabFields hideParent hiddenContainer hiddenContainer_thread">
+			<xf:selectrow label="{{ phrase('brms_thread_type') }}" name="tab_data[{$counter}][type]" class="autoSize hiddenSelector tabType" value="{$tab.type|raw}" >
+				<xf:option value="">{{ phrase('none') }}</xf:option>
+				<xf:options source="{$listTypeThreads}" />
+			</xf:selectrow>
+			<div class="tabFields hiddenContainer hiddenContainer_my_threads hiddenContainer_sticky_threads">
+				<xf:formrow label="{{ phrase('sort_by:') }}">
+					<div class="inputGroup u-inputSpacer">
+						<xf:select name="tab_data[{$counter}][order_type]" value="{$tab.order_type}">
+							<xf:option value="last_post_date">{{ phrase('last_message') }}</xf:option>
+							<xf:option value="post_date">{{ phrase('first_message') }}</xf:option>
+							<xf:option value="title">{{ phrase('title') }}</xf:option>
+							<xf:option value="reply_count">{{ phrase('replies') }}</xf:option>
+							<xf:option value="view_count">{{ phrase('views') }}</xf:option>
+							<xf:if is="$xf.options.currentVersionId < 2010000">
+								<xf:option value="first_post_likes">{{ phrase('first_message_likes') }}</xf:option>
+							<xf:else />
+								<xf:option value="first_post_reaction_score">{{ phrase('first_message_reaction_score') }}</xf:option>
+							</xf:if>
+
+						</xf:select>
+						<span class="inputGroup-splitter"></span>
+						<xf:select name="tab_data[{$counter}][order_direction]" value="{$tab.order_direction}">
+							<xf:option value="desc">{{ phrase('descending') }}</xf:option>
+							<xf:option value="asc">{{ phrase('ascending') }}</xf:option>
+						</xf:select>
+					</div>
+				</xf:formrow>
+			</div>
+			<div class="tabFields hiddenContainer hiddenContainer_thread_hotest hiddenContainer_most_reply">
+				<xf:numberboxrow label="{{ phrase('brms_thread_date_cut_off') }}" name="tab_data[{$counter}][cut_off]" value="{$tab.cut_off|raw}" min="0" tep="1" />
+			</div>
+			<div class="tabFields">
+				<xf:selectrow label="{{ phrase('forum') }}" name="tab_data[{$counter}][forums]" value="{$tab.forums|raw}" size="5" multiple="true">
+					<xf:option value="">({{ phrase('all') }})</xf:option>
+					<xf:foreach loop="$forums" value="$forum">
+						<xf:option value="{$forum.value}" label="{$forum.label}" disabled="{$forum.disabled}" />
+					</xf:foreach>
+				</xf:selectrow>
+			</div>
+			<div class="tabFields">
+				<xf:selectrow label="{{ phrase('prefix') }}" name="tab_data[{$counter}][prefix_id]" value="{$tab.prefix_id|raw}" size="5" multiple="true">
+					<xf:option value="0">({{ phrase('any') }})</xf:option>
+					<xf:option value="-1">({{ phrase('none') }})</xf:option>
+					<xf:options source="$threadPrefixes" />
+				</xf:selectrow>
+			</div>
+			<xf:checkboxrow label="{{ phrase('state') }}">
+				<xf:option name="tab_data[{$counter}][discussion_state][visible]" value="visible" selected="{$tab.discussion_state.visible}">{{ phrase('visible') }}</xf:option>
+				<xf:option name="tab_data[{$counter}][discussion_state][deleted]" value="deleted" selected="{$tab.discussion_state.deleted}">{{ phrase('deleted') }}</xf:option>
+				<xf:option name="tab_data[{$counter}][discussion_state][moderated]" value="moderated" selected="{$tab.discussion_state.moderated}">{{ phrase('moderated') }}</xf:option>
+			</xf:checkboxrow>
+			<xf:checkboxrow label="{{ phrase('locked') }}" name="tab_data[{$counter}][discussion_open]">
+				<xf:option name="tab_data[{$counter}][discussion_open][unlocked]" value="unlocked" selected="{$tab.discussion_open.unlocked}">{{ phrase('unlocked') }}</xf:option>
+				<xf:option name="tab_data[{$counter}][discussion_open][locked]" value="locked" selected="{$tab.discussion_open.locked}">{{ phrase('locked') }}</xf:option>
+			</xf:checkboxrow>
+		</div>
+		<xf:if is="{$resourceVersion}">
+			<div class="tabFields hiddenContainer hiddenContainer_resource">
+				<xf:selectrow label="{{ phrase('brms_resource_type') }}" name="tab_data[{$counter}][type_resource]" class="autoSize tabType" value="{$tab.type|raw}" >
+					<xf:option value="">{{ phrase('none') }}</xf:option>
+					<xf:options source="{$listTypeResources}" />
+				</xf:selectrow>
+				<div class="tabFields">
+					<xf:selectrow label="{{ phrase('brms_categories') }}" name="tab_data[{$counter}][categories]" value="{$tab.categories|raw}" size="5" multiple="true">
+						<xf:option value="">({{ phrase('all') }})</xf:option>
+						<xf:options source="$resourceCategoryOptions" />
+					</xf:selectrow>
+				</div>
+				<div class="tabFields">
+					<xf:selectrow label="{{ phrase('prefix') }}" name="tab_data[{$counter}][resource_prefix_id]" value="{$tab.resource_prefix_id|raw}" size="5" multiple="true">
+						<xf:option value="0">({{ phrase('any') }})</xf:option>
+						<xf:option value="-1">({{ phrase('none') }})</xf:option>
+						<xf:options source="$resourcePrefixes" />
+					</xf:selectrow>
+				</div>
+				<xf:checkboxrow label="{{ phrase('state') }}">
+					<xf:option name="tab_data[{$counter}][resource_state][visible]" value="visible" selected="{$tab.resource_state.visible}">{{ phrase('visible') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][resource_state][deleted]" value="deleted" selected="{$tab.resource_state.deleted}">{{ phrase('deleted') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][resource_state][moderated]" value="moderated" selected="{$tab.resource_state.moderated}">{{ phrase('moderated') }}</xf:option>
+				</xf:checkboxrow>
+			</div>
+		</xf:if>
+		<div class="tabFields hideParent hiddenContainer hiddenContainer_user">
+			<xf:selectrow label="{{ phrase('brms_user_type') }}" name="tab_data[{$counter}][type_user]" class="autoSize hiddenSelector tabType" value="{$tab.type|raw}" >
+				<xf:option value="">{{ phrase('none') }}</xf:option>
+				<xf:options source="{$listTypeUsers}" />
+			</xf:selectrow>
+			<xf:if is="{$currencyOptions}">
+				<div class="tabFields hiddenContainer hiddenContainer_user_richest hiddenContainer_user_poorest">
+					<xf:selectrow label="{{ phrase('BRC_currencies') }}" name="tab_data[{$counter}][currency_id]" class="autoSize" value="{$tab.currency_id|raw}" >
+						<xf:options source="{$currencyOptions}" />
+					</xf:selectrow>
+				</div>
+			</xf:if>
+			<div class="tabFields">
+				<xf:selectrow label="{{ phrase('user_groups') }}" name="tab_data[{$counter}][user_groups]" value="{$tab.user_groups|raw}" size="5" multiple="true">
+					<xf:option value="">({{ phrase('all') }})</xf:option>
+					<xf:optgroup label="">
+						<xf:options source="$userGroups" />
+					</xf:optgroup>
+				</xf:selectrow>
+			</div>
+			<div class="tabFields">
+				<xf:checkboxrow label="{{ phrase('user_state') }}" name="tab_data[{$counter}][user_state]">
+					<xf:option name="tab_data[{$counter}][user_state][valid]" value="valid" selected="{$tab.user_state.valid}">{{ phrase('valid') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][user_state][email_confirm]" value="email_confirm" selected="{$tab.user_state.email_confirm}">{{ phrase('awaiting_email_confirmation') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][user_state][email_confirm_edit]" value="email_confirm_edit" selected="{$tab.user_state.email_confirm_edit}">{{ phrase('awaiting_email_confirmation_from_edit') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][user_state][email_bounce]" value="email_bounce" selected="{$tab.user_state.email_bounce}">{{ phrase('email_invalid_bounced') }}</xf:option>
+					<xf:option name="tab_data[{$counter}][user_state][moderated]" value="moderated" selected="{$tab.user_state.moderated}">{{ phrase('awaiting_moderation') }}</xf:option>
+				</xf:checkboxrow>
+			</div>
+		</div>
+		<div class="tabFields hideParent hiddenContainer hiddenContainer_profile_post">
+			<xf:selectrow label="{{ phrase('brms_profile_post_type') }}" name="tab_data[{$counter}][type_profile_post]" class="autoSize hiddenSelector tabType" value="{$tab.type|raw}" >
+				<xf:option value="">{{ phrase('none') }}</xf:option>
+				<xf:options source="{$listTypeProfilePosts}" />
+			</xf:selectrow>
+		</div>
+	</div>
+</div>]]></template>
+  <template type="admin" title="brms_modern_statistic_list" version_id="1000030" version_string="1.0.0"><![CDATA[<xf:title page="{$page}">{{ phrase('brms_modern_statistics') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button href="{{ link('brms-statistics/add') }}" icon="add">{{ phrase('brms_add_modern_statistic') }}</xf:button>
+	</div>
+</xf:pageaction>
+
+<xf:if is="$modernStatistics is not empty">
+	<div class="block">
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$modernStatistics" value="$modernStatistic">
+						<xf:datarow>
+							<xf:main hash="{$modernStatistic.modern_statistic_id}" href="{{ link('brms-statistics/edit', $modernStatistic) }}"
+								label="{$modernStatistic.title}">
+							</xf:main>
+							<xf:cell>
+								{{ $modernStatistic.active ? phrase('brms_active') : phrase('brms_inactive') }}
+							</xf:cell>
+							<xf:delete href="{{ link('brms-statistics/delete', $modernStatistic) }}" />
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer block-footer--split">
+				<span class="block-footer-counter">{{ display_totals($keywordTotal) }}</span>
+			</div>
+		</div>
+	</div>
+<xf:else />
+	<div class="blockMessage">
+		{{ phrase('brms_no_modern_statistics_have_been_created_yet') }}
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="brms_account_preferences" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:if is="{{ $xf.visitor.hasPermission('BR_ModernStatistics', 'BRMS_allowPreference') }}">
+	<h2 class="block-formSectionHeader"><span class="block-formSectionHeader-aligner">{{ phrase('brms_modern_statistics_preferences') }}</span></h2>
+	<div class="block-body">
+		<xf:set var="$statisticRepo" value="{{ $xf.app.em.getRepository('BR\ModernStatistic:ModernStatistic') }}" />
+		<xf:foreach loop="{{ $statisticRepo.findModernStatisticsForList(true).fetch() }}" value="$modernStatistic">
+			<xf:if is="{$modernStatistic.allow_user_setting}">
+				<xf:selectrow name="brms_statistic_perferences[{$modernStatistic.modern_statistic_id}]"
+					value="{{ $xf.visitor.brms_statistic_perferences.{$modernStatistic.modern_statistic_id} }}"
+					label="{$modernStatistic.title}">
+					<xf:option value="0">{{ phrase('enable') }}</xf:option>
+					<xf:option value="1">{{ phrase('disable') }}</xf:option>
+				</xf:selectrow>
+			</xf:if>
+		</xf:foreach>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="brms_latest_profile_posts" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$profilePost">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailMain alleft">
+					<strong>{{ snippet(structured_text($profilePost.message), 80, {'stripHtml': true}) }}</strong>
+				</div>
+
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$profilePost.likes|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$profilePost.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$profilePost.comment_count|number}</strong> <span>{{ phrase('comments') }}</span>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="profile_post_tab"
+				  arg-counter="{$i}"
+				  arg-profilePost="{$profilePost}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_modern_statistic" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:if is="{$modernStatistic.tab_data} && {$modernStatistic.active}">
+	<xf:if contentcheck="true">
+	<xf:css src="brms_modern_statistic.less" />
+	<xf:js src="br/brms/modern-statistic.js" min="1" />
+	<div class="BRMSContainer {$modernStatistic.displayStyle} {{ $modernStatistic.control_position ? $modernStatistic.control_position : ' brmsLeftTabs' }} u-clearFix"
+		data-xf-init="brms-container"
+		data-previewType="{$modernStatistic.preview_tooltip}"
+		data-allowCusItemLimit="{{ $modernStatistic.item_limit.enabled && !$modernStatistic.enable_cache ? 1 : 0 }}"
+		data-allowCusLayout="{{ $modernStatistic.allow_change_layout ? 1 : 0 }}"
+		data-modernStatisticId="{{ $modernStatistic.modern_statistic_id ? $modernStatistic.modern_statistic_id : 0 }}"
+		data-navPosition="{{ $modernStatistic.control_position ? $modernStatistic.control_position : 'brmsLeftTabs' }}"
+		data-useLimit="{{ $cachedStatistic.item_limit && !$modernStatistic.enable_cache ? $cachedStatistic.item_limit : '' }}"
+		data-updateInterval="{{ ($modernStatistic.auto_update && !$modernStatistic.enable_cache) ? $modernStatistic.auto_update : 0 }}">
+		<div class="brmsStatisticHeader u-clearFix">
+			<div class="brmsConfigList">
+				<xf:if is="{$modernStatistic.item_limit.enabled} && !{$modernStatistic.enable_cache}">
+				<div class="brmsConfigBtn brmsDropdownToggle brmsLimitList">
+					<a href="javascript:;" class="brmsIco brmsIcoConfig"></a>
+					<ul class="brmsDropdownMenu">
+						<xf:if is="{$modernStatistic.item_limit.value}">
+							<xf:foreach loop="$modernStatistic.item_limit.value" key="$key" value="$numberLimit">
+								<li {{ $key==0 ? 'class="first"' : '' }}><a href="#" class="brmsNumberEntry" data-limit="{$numberLimit}">{$numberLimit} {{ phrase('brms_entries') }}</a></li>
+							</xf:foreach>
+						</xf:if>
+					</ul>
+				</div>
+				</xf:if>
+				<xf:if is="{$modernStatistic.allow_manual_refresh}">
+				<div class="brmsConfigBtn brmsRefresh"><a href="javascript:;" class="brmsIco brmsIcoRefresh"></a></div>
+				</xf:if>
+				<xf:if is="{$modernStatistic.allow_change_layout}">
+				<div class="brmsConfigBtn brmsDropdownToggle brmsLayoutList last">
+					<a href="javascript:;" class="brmsIco brmsIcoLayout"></a>
+					<ul class="brmsDropdownMenu">
+						<li class="first"><a href="#" class="brmsLayoutChange" data-layout="brmsTopTabs">{{ phrase('top') }}</a></li>
+						<li><a href="#" class="brmsLayoutChange" data-layout="brmsLeftTabs">{{ phrase('left') }}</a></li>
+						<li><a href="#" class="brmsLayoutChange" data-layout="brmsRightTabs">{{ phrase('right') }}</a></li>
+					</ul>
+				</div>
+				</xf:if>
+			</div>
+			<ul class="brmsTabNav u-clearFix">
+				<xf:contentcheck>
+				<xf:foreach loop="$modernStatistic.tabData" key="$key" value="$tab">
+					<xf:if is="{$tab.active} && (({$tab.type}!='my_threads' && {$tab.type}!='your_profile_posts')||{$xf.visitor.user_id})">
+						<li class="brmlShow"><a class="brmsTabHandler_{$key}" href="javascript:;" data-content="brmsTabContent_{$key}" data-tabid="{$key}"><span>{{ $tab.defaultTitle ? $tab.defaultTitle : $tab.title }}</span></a></li>
+					</xf:if>
+				</xf:foreach>
+				</xf:contentcheck>
+				<li class="brmsTabNavHiddenMenu last">
+					<div class="brmsTabNavHidden brmsDropdownToggle">
+						<a href="javascript:;" class="brmsIco brmsIcoList"></a>
+						<ul class="brmsDropdownMenu">
+							<xf:foreach loop="$modernStatistic.tabData" key="$key" value="$tab">
+								<xf:if is="{$tab.active} && ({$tab.type}!='my_threads'||{$xf.visitor.user_id})">
+									<li class="brmlShow"><a class="brmsTabHandler_{$key}" href="javascript:;" data-content="brmsTabContent_{$key}" data-tabid="{$key}"><span>{{ $tab.defaultTitle ? $tab.defaultTitle : $tab.title }}</span></a></li>
+								</xf:if>
+							</xf:foreach>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<xf:foreach loop="$modernStatistic.tabData" key="$key" value="$tab">
+			<xf:if is="{$tab.active} && (({$tab.type}!='my_threads' && {$tab.type}!='your_profile_posts')||{$xf.visitor.user_id})">
+			<div class="brmsTabContent brmsTabContent_{$key} u-clearFix" data-content="brmsTabContent_{$key}">
+				<xf:if is="{$key}==0">
+					<xf:if is="{$firstTabHtml}">{$firstTabHtml|raw}<xf:else /><div class="brmsIcoLoader brmsIcoRefresh"></div><div class="clear"></div></xf:if>
+				<xf:else />
+					<div class="brmsIcoLoader brmsIcoRefresh"></div><div class="clear"></div>
+				</xf:if>
+			</div>
+			</xf:if>
+		</xf:foreach>
+	</div>
+	</xf:if>
+</xf:if>]]></template>
+  <template type="public" title="brms_modern_statistic.less" version_id="3000030" version_string="3.0.0"><![CDATA[.BRMSContainer
+{
+	color: #333;
+	margin: auto auto 10px;
+	width: 100%;
+	ul, ol{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.brmsStatisticHeader
+	{
+		display: block;
+		margin: auto 0 !important;
+	}
+
+	&.brmsLeftTabs .brmsStatisticHeader,
+	&.brmsRightTabs .brmsStatisticHeader{
+		float: left;
+		width: 151px;
+		position: relative;
+		top: 0;
+		z-index: 10;
+	}
+	&.brmsRightTabs .brmsStatisticHeader{
+		float: right;
+	}
+	&.brmsTopTabs .brmsStatisticHeader{
+		height: 39px;
+		padding: 0 13px;
+	}
+
+	.brmlShow{
+		display:block;
+	}
+	.brmlHide{
+		display:none;
+	}
+
+	.brmsConfigList{
+		text-align: center;
+	}
+
+	&.brmsLeftTabs .brmsConfigList,
+	&.brmsRightTabs .brmsConfigList{
+		margin-bottom:10px;
+	}
+	&.brmsTopTabs .brmsConfigList{
+		float:right;
+	}
+
+	.brmsConfigList .brmsConfigBtn
+	{
+		background-color: #FAFAFA;
+		padding: 8px 13px 7px;
+		margin: 2px 0;
+		border: 1px solid #D5D5D5;
+		border-radius: 2px;
+		display: inline-block;
+		cursor: pointer;
+		font-weight: bold;
+		line-height: 13px;
+		color: #686868;
+		box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+		background: -moz-linear-gradient(top, #FFF 0%, #F5F5F5 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#F5F5F5));
+		background: -webkit-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+		background: -o-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+		background: -ms-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+		background: linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+	}
+
+	.brmsConfigBtn:hover
+	{
+		background: #f6f6f6;
+	}
+	&.brmsRightTabs .brmsConfigList .brmsConfigBtn
+	{
+		margin-right:0px;
+		margin-left:5px;
+	}
+	.brmsConfigList .brmsConfigBtn.last
+	{
+		margin-right:0;
+	}
+
+	ul.brmsTabNav
+	{
+
+	}
+
+	&.brmsLeftTabs ul.brmsTabNav{
+		border-bottom-left-radius: 12px;
+		border-top-left-radius: 12px;
+		border: 1px solid #DDD;
+		border-right-width: 0;
+	}
+	&.brmsRightTabs ul.brmsTabNav{
+		border-bottom-right-radius: 12px;
+		border-top-right-radius: 12px;
+		border: 1px solid #DDD;
+		border-left-width: 0;
+	}
+	&.brmsTopTabs ul.brmsTabNav{
+		height: 39px;
+	}
+	ul.brmsTabNav > li
+	{
+		font-size: 1.11em;
+		background-color: whitesmoke;
+		margin: auto;
+		border: 0px solid #DDD;
+		list-style-type: none;
+		display: block;
+		text-shadow: 0 0 0 transparent, 0px 1px 1px #F2F1F0;
+		background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
+		background: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+		background: -o-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+		background: -ms-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+		background: linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+	}
+	&.brmsRightTabs ul.brmsTabNav > li{
+		border-bottom-width: 1px;
+		border-left-width: 1px;
+	}
+	&.brmsLeftTabs ul.brmsTabNav > li{
+		border-right-width: 1px;
+		border-bottom-width: 1px;
+	}
+	&.brmsTopTabs ul.brmsTabNav > li{
+		border-bottom: none;
+		float:left;
+		border-left-width: 1px;
+		border-top-width: 1px;
+		position: relative;
+	}
+	ul.brmsTabNav > li.current
+	{
+		color: black;
+		border-right-width: 0px;
+		background: white !important;
+		box-shadow: inset 0 0 35px 5px #fafbfd;
+	}
+	&.brmsLeftTabs ul.brmsTabNav > li.current
+	{
+		border-right: none;
+		z-index: 10;
+	}
+	&.brmsRightTabs ul.brmsTabNav > li.current
+	{
+		border-left: none;
+		z-index: 10;
+	}
+	&.brmsLeftTabs ul.brmsTabNav > li.first{
+		border-top-left-radius: 10px;
+	}
+	&.brmsRightTabs ul.brmsTabNav > li.first{
+		border-top-right-radius: 10px;
+	}
+
+	&.brmsLeftTabs ul.brmsTabNav > li.last
+	{
+		border-bottom-left-radius: 10px;
+		border-bottom: none;
+	}
+	&.brmsRightTabs ul.brmsTabNav > li.last
+	{
+		border-bottom-right-radius: 10px;
+		border-bottom: none;
+	}
+	&.brmsTopTabs ul.brmsTabNav > li.first{
+
+	}
+	&.brmsTopTabs ul.brmsTabNav > li.last
+	{
+		border-right-width:1px;
+	}
+	&.brmsTopTabs ul.brmsTabNav > li.current
+	{
+		height: 40px;
+	}
+	&.brmsLeftTabs ul.brmsTabNav > li.first.current,
+	&.brmsRightTabs ul.brmsTabNav > li.first.current
+	{
+		border-bottom-width: 1px;
+	}
+
+	&.brmsTopTabs ul.brmsTabNav > li.first.current
+	{
+		border-bottom: none;
+	}
+
+	ul.brmsTabNav > li a
+	{
+		font-weight: bold;
+		font-size: 11px;
+		color: #5C5C5C;
+		text-decoration: none;
+		margin: 0px;
+		outline: none;
+		display: block;
+		text-align: left;
+	}
+	ul.brmsTabNav > li a span{
+		display:block;
+	}
+	ul.brmsTabNav > li a span.description
+	{
+		float:left;
+		display:block;
+		font-weight:normal;
+	}
+	&.brmsLeftTabs ul.brmsTabNav > li a,
+	&.brmsRightTabs ul.brmsTabNav > li a
+	{
+		padding: 15px 10px;
+	}
+
+	&.brmsTopTabs ul.brmsTabNav > li a
+	{
+		line-height: 38px;
+		padding:0 10px;
+	}
+	&.brmsTopTabs ul.brmsTabNav > li a span.description{
+		display:none;
+	}
+
+
+
+	.brmsTabContent
+	{
+		background-color: #FFF;
+		padding: 10px;
+		border: 1px solid #ddd;
+		display: none;
+		box-shadow: inset 0 0 35px 5px #fafbfd;
+	}
+	&.brmsLeftTabs .brmsTabContent,
+	&.brmsRightTabs .brmsTabContent{
+		margin-left: 150px;
+		position: relative;
+		z-index: 9;
+		min-height:247px;
+	}
+	&.brmsRightTabs .brmsTabContent{
+		margin-right: 150px;
+		margin-left: 0;
+	}
+	.brmsTabContent ol.brmsContentList{
+		counter-reset: numList;
+	}
+	.brmsTabContent ol.brmsContentList > li{
+		padding: 1px 0;
+		border-top: 1px dashed #CCC;
+		float: left;
+		width: 100%;
+	}
+
+	.brmsTabContent ol.brmsContentList > li.first{
+		border-top: 1px none black;
+	}
+
+	.brmsIcoRefresh,
+	.brmsIcoConfig,
+	.brmsIcoList,
+	.brmsIcoLayout{
+		background-image: url('styles/br/brms/light-sprite.png');
+	}
+
+	.itemContent{
+		padding: 0px;
+		-moz-transition: all .3s ease-out;
+		-ms-transition: all .3s ease-out;
+		-o-transition: all .3s ease-out;
+		transition: all .3s ease-out;
+		display: table;
+		table-layout: fixed;
+		word-wrap: normal;
+		width: 100%;
+		&:hover{
+			background-color: #eee;
+		}
+		.listBlock {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.counter{
+			font-size: 11px;
+			color: #f00;
+			background-position: 0px -192px;
+			padding-right: 5px;
+			margin-top: 1px;
+			margin-right: 1px;
+			text-align: center;
+			position: relative;
+			width: 20px;
+			.countNumber{
+				background-color: #eee;
+				border-radius: 3px;
+				line-height: 15px;
+				min-width: 15px;
+				display: block;
+				height: 15px;
+			}
+			.arrow{
+				border: 3px solid transparent;
+				border-right: 1px none black;
+				border-left-color: #eee;
+				position: absolute;
+				top: 6px;
+				right: 2px;
+				display: block;
+				width: 0px;
+				height: 0px;
+			}
+			&.counter_1 .countNumber,
+			&.counter_2 .countNumber,
+			&.counter_3 .countNumber{
+				font-size:12px;
+				color:#fff;
+			}
+			&.counter_1 .countNumber{
+				background-color: #FF0000;
+			}
+			&.counter_2 .countNumber{
+				background-color: #FF4040;
+			}
+			&.counter_3 .countNumber{
+				background-color: #FF7373;
+			}
+			&.counter_1 .arrow{
+				border-left-color: #ff0000;
+			}
+			&.counter_2 .arrow{
+				border-left-color: #FF4040;
+			}
+			&.counter_3 .arrow{
+				border-left-color: #FF7373;
+			}
+		}
+
+
+		&:hover .counter .countNumber{
+			background-color: #fff;
+		}
+		&:hover .counter .arrow{
+			border-left-color: #fff;
+		}
+		&:hover .counter.counter_1 .countNumber,
+		&:hover .counter.counter_2 .countNumber,
+		&:hover .counter.counter_3 .countNumber{
+			color: #FF0000;
+		}
+
+		.itemTitle{
+			width: auto;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 65%;
+		}
+	}
+
+
+
+	.itemUser .itemContent .itemTitle{
+		width: auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 35%;
+	}
+	.itemContent .itemDetail {
+		width: 150px;
+		max-width: 150px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.itemContent .itemDetail.itemDate {
+		width: 200px;
+		max-width: 200px;
+	}
+
+	.itemContent .itemDetail,
+	.itemContent .itemDetail a{
+		font-size: 11px;
+		text-align: right;
+	}
+	.itemUser .itemContent .itemDetail,
+	.itemUser .itemContent .itemDetail a{
+		font-size: 11px;
+	}
+	.itemContent .itemDetailDate a.paint {
+		color: @xf-paletteNeutral2;
+	}
+	.itemContent .itemDetailDate > span {
+		font-size: 0.8em;
+		color: @xf-paletteNeutral2;
+	}
+
+	.itemUser .itemContent .itemDetailMain{
+		text-align:right;
+	}
+	.itemUser .itemContent .itemDetailMain strong{
+		font-weight: bold;
+	}
+	.itemContent .itemDetailName{
+		text-align:right;
+	}
+	.itemContent .itemDetailName a.username span {
+		font-weight: bold;
+		font-size: 11px;
+	}
+	.itemContent .itemSubDetail.alleft{
+		text-align: left;
+	}
+
+	.newItemCounter {
+		font-weight: bold;
+		font-size: 10px;
+		color: white;
+		background-color: #e03030;
+		padding: 0 3px;
+		border-radius: 2px;
+		position: absolute;
+		line-height: 16px;
+		min-width: 12px;
+		text-align: center;
+		white-space: nowrap;
+		word-wrap: normal;
+		right: 2px;
+		top: -10px;
+		z-index: 100;
+		box-shadow: 2px 2px 5px rgba(0,0,0, 0.25);
+		height: 16px;
+		.totalNumber {
+
+		}
+
+		.arrow {
+			border: 5px solid transparent;
+			border-top-color: #e03030;
+			border-bottom: 1px none black;
+			position: absolute;
+			right: 3px;
+			line-height: 0px;
+			_display: none;
+			bottom: -4px;
+			z-index: 100;
+			width: 0px;
+			height: 0px;
+		}
+	}
+
+	.brmsNewItem .itemContent{
+		border-radius: 5px;
+		background: #FFEAE7 !important;
+	}
+
+	.brmsSticky .itemContent{
+		border-radius: 5px;
+		background: #fff1ba !important;
+	}
+	.clear{
+		clear:both;
+	}
+	.tooltip{
+		position: absolute;
+		margin: -50px 0px 0px 60px;
+		z-index:999;
+	}
+	.tooltip.show{
+		display: block;
+	}
+
+
+	.brmsRefresh{
+
+	}
+
+	.brmsIco{
+		height:14px;
+		width:14px;
+		display:block;
+	}
+	.brmsDropdownToggle{
+		position:relative;
+
+	}
+	.brmsDropdownMenu{
+		font-size: 11px;
+		background-color: #FFF;
+		margin: 0px 0 0;
+		border: 1px solid #DADADA;
+		border-top: 1px none black;
+		display: none;
+		position: absolute;
+		z-index: 999;
+		text-align: left;
+		top: 100%;
+		left: -1px;
+		float: left;
+		min-width: 160px;
+		background-clip: padding-box;
+		box-shadow: 0 2px 2px -2px #CCC;
+		li{
+			color: #686868;
+			background-color: #FAFAFA;
+			border: 1px none black;
+			border-top: 1px solid #E4E4E4;
+			box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+			background: -moz-linear-gradient(top, #FFF 0%, #F5F5F5 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#F5F5F5));
+			background: -webkit-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+			background: -o-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+			background: -ms-linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+			background: linear-gradient(top, #FFF 0%,#F5F5F5 100%);
+		}
+		li.current,
+		li:hover{
+			background-color: #f6f6f6;
+		}
+
+		&.left{
+			left: 99%;
+			top: -1px;
+		}
+		&.right{
+			right: 99%;
+			top: -1px;
+			left: -160px;
+		}
+		&.edge{
+			right: -1px;
+			left: -160px;
+		}
+
+		li.first {
+		}
+		a {
+			font-size: 12px;
+			color: #6A6A6A;
+			padding: 8px 10px;
+			display: block;
+			clear: both;
+			font-weight: normal;
+			white-space: nowrap;
+		}
+	}
+
+	&.brmsLeftTabs .brmsTabNavHidden .brmsDropdownMenu{
+		top: -1px;
+		left: 99%;
+	}
+	&.brmsRightTabs .brmsTabNavHidden .brmsDropdownMenu{
+		right: 99%;
+		top: -1px;
+		left: -160px;
+	}
+	ul.brmsTabNav > li.brmsTabNavHiddenMenu {
+		display:none;
+	}
+
+	.brmsTabNavHidden li{
+		display:none;
+	}
+	.brmsTabNavHidden{
+		text-align: center;
+	}
+	ul.brmsTabNav > li .brmsTabNavHidden > a{
+		display: inline-block;
+		text-align:center;
+		width: 34px;
+	}
+	&.brmsTopTabs .brmsTabNavHidden {
+		height:38px;
+		text-align:center;
+	}
+	&.brmsTopTabs .brmsTabNavHidden > a {
+		height: 100%;
+		text-align:center;
+	}
+
+
+	.brmsDropdownToggle:hover .brmsDropdownMenu{
+		display:block;
+	}
+
+	.brmsIcoRefresh{
+		background-position: -10px -44px;
+	}
+
+	.brmsConfigBtn:hover .brmsIcoRefresh{
+		background:url('styles/br/brms/refresh.gif') no-repeat center center;
+	}
+	.brmsIcoConfig{
+		background-position: -10px -10px;
+	}
+	.brmsIcoList{
+		background-position: 0px -102px;
+	}
+	.brmsIcoLayout{
+		background-position: -10px -78px;
+	}
+	.brmsIcoLoader{
+		background:url('styles/br/brms/loader7.gif') no-repeat center center;
+		width:220px;
+		height:19px;
+		display:block;
+		margin: auto;
+	}
+
+
+	&.BRMSContainerDark
+	{
+		color: #d5d5d5;
+		.brmsConfigList .brmsConfigBtn
+		{
+			color: #fafafa;
+			border: 1px solid #2e3234;
+			background: #313639;
+			background: -moz-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e4649), color-stop(100%, #313639));
+			background: -webkit-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -o-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -ms-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: linear-gradient(top, #3e4649 0%, #313639 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e4649', endColorstr='#313639',GradientType=0 );
+			box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
+		}
+		.brmsConfigList .brmsConfigBtn:hover
+		{
+			border: 1px solid #252a31;
+			background: #272c30 !important;
+			box-shadow: inset 0 0 35px 5px #262b2e;
+		}
+		&.brmsLeftTabs ul.brmsTabNav{
+			border: 1px solid #272c30;
+			border-right-width: 0;
+		}
+		&.brmsRightTabs ul.brmsTabNav{
+			border: 1px solid #272c30;
+			border-left-width: 0;
+		}
+		ul.brmsTabNav > li
+		{
+			background: #313639;
+			border-color:#272c30;
+			background: -moz-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e4649), color-stop(100%, #313639));
+			background: -webkit-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -o-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -ms-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: linear-gradient(top, #3e4649 0%, #313639 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e4649', endColorstr='#313639',GradientType=0 );
+			box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
+			text-shadow: none;
+		}
+		ul.brmsTabNav > li.current
+		{
+			background: #272c30 !important;
+			box-shadow: inset 0 0 35px 5px #262b2e;
+		}
+		&.brmsLeftTabs ul.brmsTabNav > li.first.current,
+		&.brmsRightTabs ul.brmsTabNav > li.first.current
+		{
+			border-bottom-width: 1px;
+		}
+
+		&.brmsTopTabs ul.brmsTabNav > li.last
+		{
+			border-right-width: 1px;
+		}
+		ul.brmsTabNav > li a
+		{
+			color: #fafafa;
+		}
+		.brmsTabContent
+		{
+			border: 1px solid #272c30;
+			background-color: #2c3032;
+			box-shadow: inset 0 0 35px 5px #262b2e;
+		}
+		.brmsTabContent >h4
+		{
+			color: Black;
+			text-shadow: 0px 1px 1px #F2F1F0;
+			border-bottom: 1px dotted #EEEDED;
+		}
+		.brmsTabContent ol li{
+			padding-top:1px;
+			background: url('styles/br/brms/dark/linesSep.png') repeat-x 0 0;
+		}
+		.brmsTabContent ol li.first{
+			background: none;
+		}
+
+		.itemContent:hover{
+			background: #222;
+		}
+		.brmsIcoRefresh,
+		.brmsIcoConfig,
+		.brmsIcoList,
+		.brmsIcoLayout{
+			background-image: url('styles/br/brms/dark-sprite.png');
+		}
+		.itemContent .counter{
+			background-position: 0px -147px;
+			color:#f00;
+		}
+		.itemContent .counter .countNumber{
+			background-color: #eee;
+		}
+		.itemContent .counter .arrow{
+			border-left-color: #eee;
+		}
+		.itemContent .counter.counter_1 .countNumber,
+		.itemContent .counter.counter_2 .countNumber,
+		.itemContent .counter.counter_3 .countNumber{
+			color:#fff;
+		}
+		.itemContent .counter.counter_1 .countNumber{
+			background-color: #FF0000;
+		}
+		.itemContent .counter.counter_2 .countNumber{
+			background-color: #FF4040;
+		}
+		.itemContent .counter.counter_3 .countNumber{
+			background-color: #FF7373;
+		}
+		.itemContent .counter.counter_1 .arrow{
+			border-left-color: #FF0000;
+		}
+		.itemContent .counter.counter_2 .arrow{
+			border-left-color: #FF4040;
+		}
+		.itemContent .counter.counter_3 .arrow{
+			border-left-color: #FF7373;
+		}
+		.itemContent:hover .counter .countNumber{
+			background-color: #fff;
+		}
+		.itemContent:hover .counter .arrow{
+			border-left-color: #fff;
+		}
+		.itemContent:hover .counter.counter_1 .countNumber,
+		.itemContent:hover .counter.counter_2 .countNumber,
+		.itemContent:hover .counter.counter_3 .countNumber{
+			color: #FF0000;
+		}
+
+		.itemContent .itemDetailDate a.paint {
+			color: #d5d5d5;
+		}
+
+		.itemContent .itemDetailDate > span {
+			color: #d5d5d5;
+		}
+
+		.brmsNewItem .itemContent{
+			background-color: #3e5d6d !important;
+		}
+
+		.brmsSticky .itemContent{
+			background-color: #B55D5C !important;
+		}
+		.itemContent .itemTitle,
+		.itemContent .itemTitle a{
+			color:#fff;
+		}
+
+		.brmsDropdownMenu{
+			background-color: #FFF;
+			border: 1px solid #24272b;
+			box-shadow: 0 2px 2px -2px #CCC;
+		}
+		.brmsDropdownMenu li{
+			color: #fafafa;
+			background: #313639;
+			background: -moz-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e4649), color-stop(100%, #313639));
+			background: -webkit-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -o-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: -ms-linear-gradient(top, #3e4649 0%, #313639 100%);
+			background: linear-gradient(top, #3e4649 0%, #313639 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e4649', endColorstr='#313639',GradientType=0 );
+			box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
+
+			border-top: 1px solid #24272b;
+		}
+		.brmsDropdownMenu li.current,
+		.brmsDropdownMenu li:hover{
+			border: 1px solid #252a31;
+			background: #272c30 !important;
+			box-shadow: inset 0 0 35px 5px #262b2e;
+		}
+
+		.brmsDropdownMenu li.first {
+			border-top: none;
+		}
+
+		.brmsDropdownMenu a {
+			color: #fafafa;
+		}
+		.brmsDropdownMenu a:hover {
+			text-decoration:none;
+		}
+		.brmsIcoRefresh{
+			background-position: -10px -44px;
+		}
+		.brmsConfigBtn:hover .brmsIcoRefresh{
+			background:url('styles/br/brms/dark/refresh.gif') no-repeat center center;
+		}
+		.brmsIcoLoader{
+			background:url('styles/br/brms/dark/loader7.gif') no-repeat center center;
+		}
+
+		.xenTooltip{
+			background:#000;
+		}
+	}
+
+}
+
+
+]]></template>
+  <template type="public" title="brms_resource_download_count" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$resource">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('resources', $resources) }}" title="">{{ phrase('xfrm_downloads') }}: {$resource.download_count|number}</a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$resource.User" rich="true" defaultname="{$resource.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="resource_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-resource="{$resource}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_resource_last_update" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$resource">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('resources/updates', $resource) }}" title=""><xf:date time="{$resource.last_update}" /></a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$resource.User" rich="true" defaultname="{$resource.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="resource_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_resource_prefix}"
+				  arg-resource="{$resource}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_resource_rating_weighted" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$resource">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('resources', $resources) }}" title="">{{ phrase('rating') }}: <xf:macro template="rating_macros" name="stars_text"
+									arg-rating="{$resource.rating_avg}"
+									arg-count="{$resource.rating_count}"
+									arg-rowClass="ratingStarsRow--textBlock" /></a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$resource.User" rich="true" defaultname="{$resource.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="resource_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-resource="{$resource}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_resource_resource_date" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$resource">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('resources', $resource) }}" title=""><xf:date time="{$resource.resource_date}" /></a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$resource.User" rich="true" defaultname="{$resource.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="resource_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-resource="{$resource}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_tab_macros" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:macro name="thread_title"
+	arg-counter="!"
+	arg-showPrefix="!"
+	arg-modernStatistic="!"
+	arg-thread="!">
+	<div class="listBlock counter counter_{$counter}">
+		<span class="countNumber">{$counter}</span>
+		<span class="arrow"><span></span></span>
+	</div>
+	<div class="listBlock itemTitle">
+		<xf:set var="$canPreview" value="{{ $thread.canPreview() && $modernStatistic.preview_tooltip == 'thread_preview' }}" />
+		<a href="{{ link('threads' . (($thread.isUnread() AND !$forceRead) ? '/unread' : ''), $thread) }}" class=""
+			data-tp-primary="on" data-xf-init="{{ $canPreview ? 'preview-tooltip' : ({$modernStatistic.preview_tooltip}=='custom_preview' ? 'brms-tooltip' : '') }}"
+			<xf:if is="{$modernStatistic.preview_tooltip}=='custom_preview'">
+			data-kind="thread"
+			data-box="{$thread.Forum.title}"
+			data-view="{$thread.view_count}"
+			data-rep="{$thread.reply_count}"
+			data-like="{{ $xf.options.currentVersionId < 2010000 ? $thread.first_post_likes : $thread.first_post_reaction_score }}"
+			</xf:if>
+			data-preview-url="{{ $canPreview ? link('threads/preview', $thread) : '' }}"><xf:if is="{$showPrefix}">{{ prefix('thread', $thread) }} </xf:if>{$thread.title}</a>
+	</div>
+</xf:macro>
+
+<xf:macro name="username"
+	arg-counter="!"
+	arg-user="!">
+	<div class="listBlock counter counter_{$counter}">
+		<span class="countNumber">{$counter}</span>
+		<span class="arrow"><span></span></span>
+	</div>
+	<div class="listBlock itemTitle">
+		<xf:username user="$user" rich="true" />
+	</div>
+</xf:macro>
+
+<xf:macro name="thread_tab"
+	arg-counter="!"
+	arg-thread="!"
+	arg-showPrefix="!"
+	arg-modernStatistic="!"
+	arg-extraData="!">
+	<li class="itemStast BRMSToolTip itemThread{{ $thread.sticky ? ' brmsSticky' : '' }}{{ $thread.isUnread() ? ' brmsNewItem':'' }}{{ $counter == 1 ? ' first' : '' }}">
+		<div class="itemContent">
+			<xf:macro template="brms_tab_macros" name="thread_title"
+				  arg-counter="{$counter}"
+				  arg-showPrefix="{$showPrefix}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-thread="{$thread}"/>
+			{$extraData}
+		</div>
+	</li>
+</xf:macro>
+
+<xf:macro name="user_tab"
+	arg-counter="!"
+	arg-user="!"
+	arg-modernStatistic="!"
+	arg-extraData="!">
+	<li class="itemStast BRMSToolTip itemUser{{ $counter == 1 ? ' first' : '' }}">
+		<div class="itemContent">
+			<xf:macro name="username"
+				  arg-counter="{$counter}"
+				  arg-user="{$user}"/>
+			{$extraData}
+		</div>
+	</li>
+</xf:macro>
+
+<xf:macro name="resource_tab"
+	arg-counter="!"
+	arg-resource="!"
+	arg-modernStatistic="!"
+	arg-extraData="!">
+	<li class="itemStast BRMSToolTip itemResource{{ $resource.Featured ? ' brmsSticky' : '' }}{{ $counter == 1 ? ' first' : '' }}">
+		<div class="itemContent">
+			<xf:macro name="resource_title"
+				  arg-counter="{$counter}"
+				  arg-showPrefix="{$modernStatistic.show_resource_prefix}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-resource="{$resource}"/>
+			{$extraData}
+		</div>
+	</li>
+</xf:macro>
+
+<xf:macro name="resource_title"
+	arg-counter="!"
+	arg-showPrefix="!"
+	arg-modernStatistic="!"
+	arg-resource="!">
+	<div class="listBlock counter counter_{$counter}">
+		<span class="countNumber">{$counter}</span>
+		<span class="arrow"><span></span></span>
+	</div>
+	<div class="listBlock itemTitle">
+		<a href="{{ link('resources', $resource) }}" class="" title="{$resource.title}"
+			<xf:if is="{$modernStatistic.preview_tooltip}=='custom_preview'">
+			data-xf-init="brms-tooltip"
+			data-box="{$resource.Category.title}"
+			data-kind="resource"
+			data-download="{$resource.download_count}"
+			data-update="{$resource.update_count}"
+			data-review="{$resource.review_count}"
+			data-vote="{$resource.rating_count|number}"
+			</xf:if>><xf:if is="{$showPrefix}">{{ prefix('resource', $resource) }} </xf:if>{$resource.title}</a>
+	</div>
+</xf:macro>
+
+<xf:macro name="profile_post_tab"
+	arg-counter="!"
+	arg-profilePost="!"
+	arg-modernStatistic="!"
+	arg-extraData="!">
+	<li class="itemStast BRMSToolTip itemProfilePost{{ $counter == 1 ? ' first' : '' }}">
+		<div class="itemContent">
+			<xf:macro name="profile_post"
+				  arg-counter="{$counter}"
+				  arg-profilePost="{$profilePost}"/>
+			{$extraData}
+		</div>
+	</li>
+</xf:macro>
+
+<xf:macro name="profile_post"
+	arg-counter="!"
+	arg-profilePost="!">
+	<div class="listBlock itemTitle">
+		<xf:if is="$profilePost.user_id != $profilePost.profile_user_id">
+			<xf:username user="$profilePost.User" rich="true" defaultname="{$profilePost.username}" aria-hidden="true" />
+			<i class="fa {{ $xf.isRtl ? 'fa-caret-left' : 'fa-caret-right' }} u-muted" aria-hidden="true"></i>
+			<xf:username user="$profilePost.ProfileUser" rich="true" defaultname="{{ phrase('unknown') }}" aria-hidden="true" />
+			<span class="u-srOnly">{{ phrase('x_wrote_on_ys_profile', {
+				'name': ($profilePost.User.username ?: {$profilePost.username}),
+				'profile': ($profilePost.ProfileUser.username ?: phrase('unknown'))
+			}) }}</span>
+		<xf:else />
+			<xf:username user="$profilePost.User" rich="true" defaultname="{$profilePost.username}" />
+		</xf:if>
+	</div>
+</xf:macro>]]></template>
+  <template type="public" title="brms_thread_latest" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$thread">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('threads', $thread) }}" title=""><xf:date time="{$thread.post_date}" /></a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$thread.User" rich="true" defaultname="{$thread.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="thread_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-thread="{$thread}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_thread_most_reply" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$thread">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('threads', $thread) }}" title="">{{ phrase('replies') }}: {$thread.reply_count|number}</a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$thread.User" rich="true" defaultname="{$thread.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="thread_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-thread="{$thread}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_thread_most_viewed" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$thread">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('threads', $thread) }}" title="">{{ phrase('views') }}: {$thread.view_count|number}</a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="$thread.User" rich="true" defaultname="{$thread.username}" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="thread_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-thread="{$thread}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_thread_my_threads" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$thread">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<xf:if is="$thread.isUnread()">
+						<a class="paint" href="{{ link('threads/unread', $thread) }}" title=""><xf:date time="{$thread.last_post_date}" /></a>
+					<xf:else />
+						<a class="paint" href="{{ link('threads/post', $thread, {'post_id': $thread.last_post_id}) }}" title=""><xf:date time="{$thread.last_post_date}" /></a>
+					</xf:if>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<a class="paint" href="{{ link('threads', $thread) }}" title="">{{ phrase('replies') }}: {$thread.reply_count|number}</a>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="thread_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-thread="{$thread}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_thread_post_latest" version_id="3000230" version_string="3.0.2"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$thread">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailDate">
+					<a class="paint" href="{{ link('threads/latest', $thread) }}" title=""><xf:date time="{$thread.last_post_date}" /></a>
+				</div>
+				<div class="listBlock itemDetail itemDetailName">
+					<xf:username user="{$thread.last_post_cache}" rich="true" />
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="thread_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-showPrefix="{$modernStatistic.show_thread_prefix}"
+				  arg-thread="{$thread}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_thread_promote" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('brms_promote_thread:') }} {{ prefix('thread', $thread, 'escaped') }}{$thread.title}</xf:title>
+<xf:h1>{{ phrase('brms_promote_thread:') }} {{ prefix('thread', $thread) }}{$thread.title}</xf:h1>
+
+<xf:breadcrumb source="$thread.getBreadcrumbs()" />
+
+<xf:form action="{{ link('threads/brms-promote', $thread) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body js-prefixListenContainer">
+			<xf:formrow label="{{ phrase('brms_promote_date') }}" explain="{{ phrase('brms_promote_date_hint') }}">
+				<div class="inputGroup">
+					<xf:dateinput name="promote_time_ymd" value="{$promoteTime.ymd}" />
+					<span class="inputGroup-text">
+						{{ phrase('criteria_time:') }}
+					</span>
+					<span class="inputGroup" dir="ltr">
+						<xf:select name="promote_time_hh" value="{$promoteTime.hh}" class="input--inline input--autoSize">
+							<xf:foreach loop="$hours" value="$hour">
+								<xf:option value="{$hour}" label="{$hour}" />
+							</xf:foreach>
+						</xf:select>
+						<span class="inputGroup-text">:</span>
+						<xf:select name="promote_time_mm" value="{$promoteTime.mm}" class="input--inline input--autoSize">
+							<xf:foreach loop="$minutes" value="$minute">
+								<xf:option value="{$minute}" label="{$minute}" />
+							</xf:foreach>
+						</xf:select>
+					</span>
+				</div>
+			</xf:formrow>
+		</div>
+		<xf:submitrow sticky="true" icon="save">
+			<xf:html>
+				<xf:if is="{$thread.brms_promote_date}">
+					<xf:button type="submit" icon="delete" name="delete" accesskey="e">{{ phrase('brms_delete_promote') }}</xf:button>
+				</xf:if>
+			</xf:html>
+		</xf:submitrow>
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="brms_thread_tools_menu" version_id="3000030" version_string="3.0.0"><![CDATA[<xf:if is="$thread.canPromoteThread()">
+	<a href="{{ link('threads/brms-promote', $thread) }}" data-xf-click="overlay" class="menu-linkRow">{{ phrase('brms_promote_thread') }}</a>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_latest_banned" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+
+				<div class="listBlock itemDetail itemDetailMain">
+					<span>{{ phrase('ban_started') }}</span> <strong><xf:date time="{$user.Ban.ban_date}" /></strong>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_latest_members" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+
+				<div class="listBlock itemDetail itemDetailMain">
+					<span>{{ phrase('joined') }}</span> <strong><xf:date time="{$user.register_date}" /></strong>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_most_likes" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.trophy_points|number}</strong> <span>{{ phrase('trophy_points') }}</span>
+				</div>
+
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_most_messages" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+				</div>
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.trophy_points|number}</strong> <span>{{ phrase('trophy_points') }}</span>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_most_points" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+				<div class="listBlock itemDetail itemDetailMain">
+					<strong>{$user.trophy_points|number}</strong> <span>{{ phrase('trophy_points') }}</span>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_most_reaction_scores" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.trophy_points|number}</strong> <span>{{ phrase('trophy_points') }}</span>
+				</div>
+				<div class="listBlock itemDetail itemDetailMain">
+					<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_most_resources" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+				<div class="listBlock itemDetail itemDetailMain">
+					<strong>{$user.xfrm_resource_count|number}</strong> <span>{{ phrase('xfrm_resources') }}</span>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_user_staff_members" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$user">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.message_count|number}</strong> <span>{{ phrase('messages') }}</span>
+				</div>
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$user.trophy_points|number}</strong> <span>{{ phrase('trophy_points') }}</span>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.like_count|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$user.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="user_tab"
+				  arg-counter="{$i}"
+				  arg-user="{$user}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+  <template type="public" title="brms_your_profile_posts" version_id="3010071" version_string="3.1.0"><![CDATA[<xf:if is="{$items}">
+	<ol class="brmsContentList u-clearFix">
+		<xf:foreach loop="$items" i="$i" value="$profilePost">
+			<xf:set var="$extraData">
+				<div class="listBlock itemDetail itemDetailMain alleft">
+					<strong>{{ snippet(structured_text($profilePost.message), 80, {'stripHtml': true}) }}</strong>
+				</div>
+				<xf:if is="$xf.options.currentVersionId < 2010000">
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$profilePost.likes|number}</strong> <span>{{ phrase('likes') }}</span>
+					</div>
+				<xf:else />
+					<div class="listBlock itemDetail itemSubDetail">
+						<strong>{$profilePost.reaction_score|number}</strong> <span>{{ phrase('reaction_score') }}</span>
+					</div>
+				</xf:if>
+
+				<div class="listBlock itemDetail itemSubDetail">
+					<strong>{$profilePost.comment_count|number}</strong> <span>{{ phrase('comments') }}</span>
+				</div>
+			</xf:set>
+			<xf:macro template="brms_tab_macros" name="profile_post_tab"
+				  arg-counter="{$i}"
+				  arg-modernStatistic="{$modernStatistic}"
+				  arg-profilePost="{$profilePost}"
+				  arg-extraData="{$extraData}"/>
+		</xf:foreach>
+	</ol>
+</xf:if>]]></template>
+</templates>

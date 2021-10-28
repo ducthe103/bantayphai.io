@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="connected_account_provider_test_thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:if is="!$providerData">
+	<xf:macro template="connected_account_provider_test_macros" name="explain"
+			  arg-providerTitle="{$provider.title}"
+			  arg-keyName="{{ phrase('client_id') }}"
+			  arg-keyValue="{$provider.options.client_id}" />
+	<xf:else />
+	<xf:macro template="connected_account_provider_test_macros" name="success" />
+
+	<xf:macro template="connected_account_provider_test_macros" name="display_name"
+			  arg-name="{$providerData.username}" />
+
+	<xf:macro template="connected_account_provider_test_macros" name="email"
+			  arg-email="{$providerData.email}" />
+
+	<xf:macro template="connected_account_provider_test_macros" name="picture"
+			  arg-url="{$providerData.avatar_url}" />
+</xf:if>]]></template>
+  <template type="admin" title="connected_account_provider_thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:textboxrow name="options[client_id]" value="{$options.client_id}"
+			   label="{{ phrase('client_id') }}"
+			   hint="{{ phrase('required') }}"
+			   explain="{{ phrase('con_acc_thspotify_client_id_explain') }}" />
+
+<xf:textboxrow name="options[client_secret]" value="{$options.client_secret}"
+			   label="{{ phrase('client_secret') }}"
+			   hint="{{ phrase('required') }}"
+			   explain="{{ phrase('con_acc_thspotify_client_secret_explain') }}" />]]></template>
+  <template type="admin" title="widget_def_options_th_most_played_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="1"
+	label="{{ phrase('maximum_entries') }}" />]]></template>
+  <template type="admin" title="widget_def_options_th_now_playing_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="1"
+	label="{{ phrase('maximum_entries') }}" />]]></template>
+  <template type="public" title="connected_account_associated_thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:if is="$providerData.profile_link">
+	<xf:if is="$providerData.avatar_url">
+		<a href="{$providerData.profile_link}" target="_blank">
+			<img src="{{ $providerData.avatar_url }}" width="48" alt="" />
+		</a>
+	</xf:if>
+	<div><a href="{$providerData.profile_link}" target="_blank">{{ $providerData.username ?: phrase('unknown_account') }}</a></div>
+	<xf:else />
+	<xf:if is="$providerData.avatar_url">
+		<img src="{{ $providerData.avatar_url }}" width="48" alt="" />
+	</xf:if>
+	<div>{{ $providerData.username ?: phrase('unknown_account') }}</div>
+</xf:if>]]></template>
+  <template type="public" title="th_most_played_spotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:title>{{ phrase('thspotify_most_played_songs') }}</xf:title>
+<xf:css src="message.less" />
+<xf:css src="thspotify.less" />
+
+<div class="block">
+	<div class="block-container">
+		<xf:if is="$songs is not empty">
+			<xf:foreach loop="$songs" value="$song">
+				<article class="message message--simple">
+					<div class="message-inner">
+						<div class="message-cell message-cell--user">
+							<img src="{$song.album_thumbnail}" alt="{$song.album_name}">
+						</div>
+						<div class="message-cell message-cell--main">
+							<div class="message-main">
+								<div class="message-content">
+									<div class="spotify__trackTitle">{$song.song_name}</div>
+									<div>{$song.artists}</div>
+									<div>{$song.album_name}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</xf:foreach>
+		</xf:if>
+	</div>
+</div>]]></template>
+  <template type="public" title="th_spotify_account_privacy" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[<xf:macro template="account_privacy" name="privacy_option"
+          arg-user="{$xf.visitor}"
+          arg-name="th_spotify_allow_view_playing"
+          arg-label="{{ phrase('th_spotify_view_currently_playing_track') }}" />]]></template>
+  <template type="public" title="th_widget_most_played_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[<xf:css src="thspotify.less" />
+
+<xf:if is="$songs is not empty">
+	<div class="block"{{ widget_data($widget) }}>
+		<div class="block-container">
+			<h3 class="block-minorHeader">{$title}</h3>
+			<ul class="block-body">
+				<xf:foreach loop="$songs" value="$song">
+					<li class="block-row">
+						<div class="contentRow">
+							<div class="contentRow-figure">
+								<img class="spotify__albumThumbnail" src="{$song.album_thumbnail}" alt="{$song.album_name}" />
+							</div>
+							<div class="contentRow-main contentRow-main--close">
+								{$song.song_name}
+								<div class="contentRow-minor">
+									{$song.artists}
+								</div>
+								<div class="contentRow-minor">
+									{$song.album_name}
+								</div>
+							</div>
+						</div>
+					</li>
+				</xf:foreach>
+			</ul>
+		</div>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="th_widget_now_playing_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[<xf:css src="thspotify.less" />
+
+<xf:if is="$userPlaybacks is not empty">
+	<div class="block"{{ widget_data($widget) }}>
+		<div class="block-container">
+			<h3 class="block-minorHeader">{$title}</h3>
+			<ul class="block-body">
+				<xf:foreach loop="$userPlaybacks" value="$userPlayback">
+					<li class="block-row">
+						<div class="contentRow">
+							<div class="contentRow-figure">
+								<img class="spotify__albumThumbnail" src="{$userPlayback.SpotifySong.album_thumbnail}" alt="{$userPlayback.SpotifySong.album_name}" />
+							</div>
+							<div class="contentRow-main contentRow-main--close">
+								{$userPlayback.SpotifySong.song_name}
+								<div class="contentRow-minor">
+									{$userPlayback.SpotifySong.artists}
+								</div>
+								<div class="contentRow-minor">
+									{$userPlayback.SpotifySong.album_name}
+								</div>
+							</div>
+						</div>
+					</li>
+				</xf:foreach>
+			</ul>
+		</div>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="thspotify.less" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[.message-cell {
+    a.button--spotifyModal {
+        .button-text {
+            margin-left: -3px;
+            margin-right: -2px;
+        }
+        display: flex;
+    }
+}
+
+a.button--spotifyModal {
+    .button-text {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.spotifyPlayback {
+    display: flex;
+    //align-items: center;
+    flex-grow: 1;
+
+    &__albumArt {
+        max-width: 100px;
+        width: 100%;
+    }
+
+    &__trackDetails {
+        margin-left: @xf-paddingLarge;
+        flex-grow: 1;
+
+        &__title {
+            font-weight: bold;
+            font-size: @xf-fontSizeLarge;
+        }
+
+        &__playBar {
+            display: flex;
+            border: 1px solid #000;
+        }
+
+        &__playButton {
+            width: 21px;
+            height: 21px;
+            text-align: center;
+            align-items: center;
+
+            background: #1DB954;
+
+            a, a:hover, a:visited {
+                color: #FFF;
+                display: block;
+                width: 21px;
+                height: 20px;
+            }
+        }
+
+        &__progressBar {
+            height: 21px;
+            width: 100%;
+
+            &__bar {
+                background: #1DB954;
+                height: 21px;
+                transition: width 0.15s linear;
+            }
+        }
+    }
+}
+
+.spotify__trackTitle {
+    font-weight: bold;
+    font-size: @xf-fontSizeLarge;
+}
+
+.spotify__albumThumbnail {
+	width: 32px;
+}]]></template>
+  <template type="public" title="thspotify_member_spotify_playback" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[<xf:css src="thspotify.less" />
+<xf:js src="themehouse/spotify/spotifyUser.js" min="themehouse/spotify/spotifyUser.min.js" addon="ThemeHouse/Spotify" />
+<xf:js>
+	$(document).ready(function() {
+		themehouse.spotifyUser.initialize({$user.user_id}, {$songJson}, {$playbackJson});
+	});
+</xf:js>
+
+<xf:title>{{ phrase('thspotify_spotify_playback_for_x', {"name": $user.username}) }}</xf:title>
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="block-row spotifyPlayback">
+				<div class="spotifyPlayback__albumArt">
+					<img src="{$song.album_thumbnail}" alt="{$song.album_name}">
+				</div>
+				<div class="spotifyPlayback__trackDetails">
+					<div class="spotifyPlayback__trackDetails__title"><a href="{$song.spotify_url}" target="_BLANK">{$song.song_name}</a></div>
+					<div class="spotifyPlayback__trackDetails__artists">{{ phrase('by:') }} {$song.artists}</div>
+					<div class="spotifyPlayback__trackDetails__album"><a href="{$song.spotify_album_url}" target="_BLANK">{$song.album_name}</a></div>
+					<div class="spotifyPlayback__trackDetails__playBar">
+						<div class="spotifyPlayback__trackDetails__playButton">
+							<a href="{$song.spotify_url}" target="_BLANK"><i class="fa fa-play-circle"></i></a>
+						</div>
+						<div class="spotifyPlayback__trackDetails__progressBar">
+							<div class="spotifyPlayback__trackDetails__progressBar__bar" style="width: {$playback.getProgressPercent()}%;"></div>
+						</div>
+					</div>
+					<div class="spotifyPlayback__trackDetails__progress">
+						{$playback.getCurrentProgressStr()}
+					</div>
+				</div>
+			</div>
+
+			<div class="block-row spotifyError" style="display: none">
+				{{ phrase('thspotify_x_has_stopped_their_spotify_player', {'name': $user.username}) }}
+			</div>
+		</div>
+	</div>
+</div>]]></template>
+  <template type="public" title="thspotify_spotify_macros" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[<xf:macro name="spotify_playback_mini" arg-location="!" arg-user="!" arg-showDetails="{{ false }}" arg-detailsWrapperClass="">
+	<xf:if is="$user.canViewSpotifyPlayback() && $user.SpotifyUserPlayback && $user.SpotifyUserPlayback.isPlaying()">
+		<xf:css src="thspotify.less" />
+		<xf:set var="$song" value="{$user.SpotifyUserPlayback.SpotifySong}" />
+
+		<xf:if is="$showDetails">
+			<div class="{$detailsWrapperClass}">
+				<dl class="pairs pairs--inline">
+					<dt>{{ phrase('th_spotify_listening_to') }}</dt>
+					<dd><a href="{$song.spotify_url}" target="_blank">{$song.song_name}</a> by {$song.artists}</dd>
+				</dl>
+			</div>
+		</xf:if>
+
+		<div><a href="{{ link('members/spotify-playback', $user) }}" data-xf-click="overlay" data-cache="0" class="button--spotifyModal button--provider button--provider--thspotify button"><span class="button-text">{{ phrase('thspotify_listening_to_spotify') }}</span></a></div>
+	</xf:if>
+</xf:macro>
+
+
+<xf:macro name="message_user_info" arg-user="!" arg-extras="!">
+	<xf:if is="$extras.thspotify">
+		<xf:macro name="spotify_playback_mini" arg-location="message_user_info" arg-user="{$user}" />
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="member_tooltip" arg-user="!">
+	<xf:if is="{{ property('th_spotify_showPlaybackMemberTooltip') }}">
+		<xf:macro name="spotify_playback_mini" arg-location="member_tooltip" arg-user="{$user}" arg-showDetails="{{ property('th_spotify_showPlaybackDetailsMemberTooltip') }}" />
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="member_view" arg-user="!">
+	<xf:if is="{{ property('th_spotify_showPlaybackMemberView') }}">
+		<xf:macro name="spotify_playback_mini" arg-location="member_view" arg-user="{$user}" arg-showDetails="{{ property('th_spotify_showPlaybackDetailsMemberView') }}" />
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="global_js">
+	<xf:if is="$xf.visitor.user_id && $xf.visitor.ConnectedAccounts.thspotify">
+		<xf:js>
+			themehouse.spotify.updateUserPlaybackTimeout = {$xf.options.thspotify_pollRate};
+		</xf:js>
+		<xf:js src="themehouse/spotify/spotify.js" min="themehouse/spotify/spotify.min.js" addon="ThemeHouse/Spotify" />
+	</xf:if>
+</xf:macro>
+]]></template>
+</templates>

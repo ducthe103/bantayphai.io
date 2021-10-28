@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="mvb_user_edit" version_id="2000270" version_string="2.0.2"><![CDATA[<hr class="formRowSep" />
+<xf:checkboxrow label="{{ phrase('mvb_user_edit_verified') }}">		
+	<xf:option name="mvb_verified" selected="$user.mvb_verified">
+		{{ phrase('mvb_user_edit_verified') }}
+	</xf:option>
+</xf:checkboxrow>]]></template>
+  <template type="public" title="mvb_overview" version_id="2000270" version_string="2.0.2"><![CDATA[<xf:title>{{ phrase('information') }}</xf:title>
+
+<xf:css src="mvb_overview.less" />
+<xf:css src="structured_list.less" />
+
+
+<div class="block-rowMessage block-rowMessage--warning block-rowMessage--iconic">
+	{{ phrase('mvb_verification_explain') }} {{ phrase('mvb_verified_members:') }} {{ $total }}
+</div>
+
+
+<div class="block">
+	<div class="block-outer">
+		<xf:trim>
+			<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="verification" data="{$verification}"
+			wrapperclass="block-outer-main" />
+		</xf:trim>
+	</div>
+	
+	<div class="block-container">
+		<div class="block-body">
+			<xf:foreach loop="$verification" value="$verifications">
+				<div class="block-row block-row--separated">
+					<xf:macro template="member_list_macros" name="item" arg-user="{$verifications}" />
+				</div>
+			</xf:foreach>
+		</div>
+	</div>
+	
+	<div class="block-outer block-outer--after">
+		<xf:pagenav
+			page="{$page}" perpage="{$perPage}" total="{$total}"
+			link="verification" data="{$verification}"
+			wrapperclass="block-outer-main" />
+
+		<xf:showignored wrapperclass="block-outer-opposite" />
+	</div>
+</div>
+
+<xf:sidebar>
+	<div class="block">
+		<div class="block-container">
+			<h3 class="block-minorHeader">{{ phrase('mvb_rules_link_title') }}</h3>
+			<div class="block-body block-row">
+				{{ phrase('mvb_verification_rules') }}
+			</div>
+		</div>
+	</div>
+</xf:sidebar>]]></template>
+  <template type="public" title="mvb_overview.less" version_id="2000270" version_string="2.0.2"><![CDATA[.verif-block
+{
+	padding: 15px;
+	background: rgba(107, 183, 200, 0.23);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	position: relative;
+}
+.verif-block .check-block
+{
+	display: inline;
+	font-size: 60px;
+	color: #44a7c2;
+}
+.verif-two
+{
+	text-align: center;
+}
+.explain-block
+{
+	display: inline-block;
+	width: 470px;
+}
+.verif .titleBar
+{
+	padding: 5px;
+	background: rgba(137, 213, 239, 0.61);
+	text-align: center;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	margin-bottom: 0;
+}
+.rules-icon-block {
+	display: inline;
+	font-size: 35px;
+	color: #107f9e;
+}
+.verif-three {
+	text-align: center;
+}
+.rules-block
+{
+	display: inline-block;
+	width: 225px;
+	font-weight: bold;
+}
+
+.rules-block
+{
+	padding: 15px;
+	background: rgba(107, 183, 200, 0.23);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	position: relative;
+	text-align: center;
+}
+.verif_rules .titleBar
+{
+	padding: 5px;
+	background: rgba(137, 213, 239, 0.61);
+	text-align: center;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	margin-bottom: 0;
+}]]></template>
+</templates>

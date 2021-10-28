@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="core_action_bar.less" modification_key="mtu_action_bar_less_tag" description="Add tag core on action bar" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[&.actionBar-action--like:before { .m-faContent("@{fa-var-thumbs-up}\20"); }]]></find>
+    <replace><![CDATA[$0
+&.actionBar-action--tag:before { .m-faContent("@{fa-var-user}\20"); }]]></replace>
+  </modification>
+  <modification type="public" template="post_macros" modification_key="mtu_post_macros" description="Add &quot;Username Tag&quot; in posts" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[{{ phrase('reply') }}</a>]]></find>
+    <replace><![CDATA[$0
+<a href="{{ link('threads/reply', $thread, {'tag': $post.username}) }}"
+   title="{{ phrase('mut_insert_username')|for_attr }}"
+   class="actionBar-action actionBar-action--tag"
+   data-username="{{ $post.username }}"	
+   data-xf-click="userTag">{{ phrase('mut_tag') }}
+</a>]]></replace>
+  </modification>
+  <modification type="public" template="thread_view" modification_key="mtu_thread_view" description="Add load custom js" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:js src="xf/message.js" min="1" />]]></find>
+    <replace><![CDATA[$0
+<xf:js src="MMO/TagUser/message.js" min="1" />]]></replace>
+  </modification>
+</template_modifications>

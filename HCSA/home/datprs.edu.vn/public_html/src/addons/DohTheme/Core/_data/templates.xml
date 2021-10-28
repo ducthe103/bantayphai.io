@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="reme_core.less" version_id="1000070" version_string="1.0.0"><![CDATA[.lastpost--avatar {
+    float: left;
+    margin-right: @xf-paddingMedium;
+}
+
+@media(max-width: @xf-responsiveMedium) {
+    .lastpost--avatar {
+        display: none;
+    }
+}]]></template>
+</templates>

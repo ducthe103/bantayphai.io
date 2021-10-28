@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="bb_code_tag_code" modification_key="CMTV_Code_bb_code_tag_code" description="Custom template" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/[\s\S]+/]]></find>
+    <replace><![CDATA[<xf:include template="CMTV_Code_bb_code_tag_code" />]]></replace>
+  </modification>
+  <modification type="public" template="editor" modification_key="CMTV_Code_editor" description="Extended code editor dialog" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:include_js]-->]]></find>
+    <replace><![CDATA[<xf:js src="CMTV/Code/editor-dialog-code.js" min="1" addon="CMTV/Code" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="editor_dialog_code" modification_key="CMTV_Code_editor_dialog_code_common_languages" description="Displaying custom common languages from ACP option" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/(<xf:optgroup label="{{ phrase\('common_languages'\) }}">)([\S\s]+?)(<\/xf:optgroup>)/]]></find>
+    <replace><![CDATA[$1
+
+<xf:foreach loop="$commonLanguages" value="$languageKey">
+	<xf:option value="{$languageKey}">{$languages.{$languageKey}.phrase}</xf:option>
+</xf:foreach>
+
+$3]]></replace>
+  </modification>
+  <modification type="public" template="editor_dialog_code" modification_key="CMTV_Code_editor_dialog_code_default_language" description="Setting default language in &quot;Insert code&quot; editor dialog" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[id="editor_code_type"]]></find>
+    <replace><![CDATA[id="editor_code_type" value="{$xf.options.CMTV_Code_defaultCodeLanguage}"]]></replace>
+  </modification>
+  <modification type="public" template="editor_dialog_code" modification_key="CMTV_Code_editor_dialog_code_title" description="Adding &quot;Code block title&quot; and &quot;Highlight lines&quot; text fields" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="block-body" data-xf-init="code-editor-switcher-container">]]></find>
+    <replace><![CDATA[$0
+
+<xf:textboxrow id="editor_code_title" 
+			   label="{{ phrase('CMTV_Code_code_block_title') }}" 
+			   explain="{{ phrase('CMTV_Code_code_block_title_explain') }}" />
+
+<xf:textboxrow id="editor_code_highlight" 
+			   label="{{ phrase('CMTV_Code_code_block_highlight') }}" 
+			   explain="{{ phrase('CMTV_Code_code_block_highlight_explain') }}" />]]></replace>
+  </modification>
+  <modification type="public" template="helper_js_global" modification_key="CMTV_Code_helper_js_global_phrase" description="Passing &quot;Copied&quot; phrase to JS scripts" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[// <!--[XF:js_global:xf_phrase_start]-->]]></find>
+    <replace><![CDATA[$0
+
+CMTV_Code_copied: "{{ phrase('CMTV_Code_copied')|escape('js') }}",]]></replace>
+  </modification>
+  <modification type="public" template="prism_macros" modification_key="CMTV_Code_prism_macros_plugins" description="Including Prism plugins" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[</xf:macro>]]></find>
+    <replace><![CDATA[<xf:css src="CMTV_Code_Prism_plugins.less" />
+
+<xf:if is="$xf.options.CMTV_Code_lineNumbers_enabled">
+	<xf:js src="CMTV/Code/vendor/prism-plugins/line-numbers.min.js" addon="CMTV/Code" />
+</xf:if>
+
+<xf:if is="$xf.options.CMTV_Code_lineHighlight_enabled">
+	<xf:js src="CMTV/Code/vendor/prism-plugins/line-highlight.min.js" addon="CMTV/Code" />
+</xf:if>
+
+$0]]></replace>
+  </modification>
+</template_modifications>

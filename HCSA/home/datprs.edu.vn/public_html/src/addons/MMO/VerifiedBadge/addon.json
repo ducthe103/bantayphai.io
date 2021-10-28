@@ -1,0 +1,16 @@
+{
+    "legacy_addon_id": "VerifiedBadge",
+    "title": "[MMO] Verified Badge",
+    "description": "Verification of users",
+    "version_id": 2000270,
+    "version_string": "2.0.2",
+    "dev": "kick | Captain",
+    "dev_url": "https://mmo-develop.ru",
+    "faq_url": "",
+    "support_url": "https://mmo-develop.ru",
+    "extra_urls": {
+        "XenForo.Info": "https://xenforo.info/resources/mmo-verified-badge.5677/"
+    },
+    "require": [],
+    "icon": "far fa-check-circle"
+}

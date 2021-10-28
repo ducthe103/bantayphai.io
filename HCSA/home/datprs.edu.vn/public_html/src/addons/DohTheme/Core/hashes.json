@@ -1,0 +1,16 @@
+{
+    "src/addons/DohTheme/Core/addon.json": "f80a6fc944b5b738c978b034efa99228add1e97506aa6c2425d2db2605fab605",
+    "src/addons/DohTheme/Core/icon.png": "492fe954cc2052b8039f982adf7ea444854b302203916aaf78caed8977a8138e",
+    "src/addons/DohTheme/Core/Listener.php": "83fb205ff82b18c82d34351f4fee33ea0cc12085d8d315ae7895aaf2a0baf4f8",
+    "src/addons/DohTheme/Core/Setup.php": "a241a64087031bc13ddd69d9095536f474529f4f6a96dadd457e2acd018d2fb6",
+    "src/addons/DohTheme/Core/XF/Admin/Controller/Category.php": "c642c29b3065a39b096d2b11666b936a1522285cd4a114eea215a5a584c1e11b",
+    "src/addons/DohTheme/Core/XF/Admin/Controller/Forum.php": "98d41a705721e67eb51d7ccc2383df667998fa1c012da1b5e214eec2f9ee49e3",
+    "src/addons/DohTheme/Core/XF/Admin/Controller/Page.php": "1187f0d320b5cd868005a0afb1c2c9c9c6b9f6705c736d7778d0538497d571fe",
+    "src/addons/DohTheme/Core/XF/Template/Templater.php": "7f2b60906f601a6259066c10fb82d634627d8f4e31e2ba0cc319a4a168f1eb6e",
+    "src/addons/DohTheme/Core/_data/class_extensions.xml": "79a7acb44e724b38764c047b6e3c21598e9e47c20aedcb2faba12955d73fef64",
+    "src/addons/DohTheme/Core/_data/code_event_listeners.xml": "a30d79a7f7c2767cefee95934d1203c2458cba69c007af6afc6c269b8e20680c",
+    "src/addons/DohTheme/Core/_data/phrases.xml": "f5bf1e533852ec337342eb763273c060204b0a1ffae1594268b124af94c25840",
+    "src/addons/DohTheme/Core/_data/style_properties.xml": "1469c4e0729a823746d72eb889286e48518d6fe181ffa456a3be226bae2ec78a",
+    "src/addons/DohTheme/Core/_data/templates.xml": "026467a18d27ef6b99102388602ca0b34ad23ae69f088a22a69270600763bf74",
+    "src/addons/DohTheme/Core/_data/template_modifications.xml": "4a8da6304272fcc61c9f539098f672b94f1b344902881b951641d4795546621f"
+}

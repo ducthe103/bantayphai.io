@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="CMTV_Code_Prism_plugins.less" version_id="2010070" version_string="2.1.0"><![CDATA[// ############################ Line numbers ############################
+
+pre[class*="language-"].line-numbers {
+	position: relative;
+	padding-left: 2.8em;
+	counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+	position: relative;
+	white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid @xf-borderColor;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: @xf-textColorMuted;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+
+// ############################ Line highlight ############################
+
+pre[data-line] {
+	position: relative;
+	//padding: 1em 0 1em 3em;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	//margin-top: 1em; /* Same as .prism’s padding-top */
+
+	background: fade(@xf-paletteAccent2, 8%);
+	//background: linear-gradient(to right, fade(@xf-paletteAccent2, 10%) 70%, fade(@xf-paletteAccent2, 0%));
+
+	pointer-events: none;
+
+	line-height: inherit;
+	white-space: pre;
+}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+	content: none;
+}]]></template>
+  <template type="public" title="CMTV_Code_bb_code_tag_code" version_id="2010070" version_string="2.1.0"><![CDATA[<xf:macro template="prism_macros" name="setup" />
+
+<xf:css src="CMTV_Code_code_block.less" />
+
+<xf:js src="CMTV/Code/code-block.js" min="1" addon="CMTV/Code" />
+<xf:js src="CMTV/Code/code-block-actions.js" min="1" addon="CMTV/Code" />
+<xf:js src="CMTV/Code/code-block-resizer.js" min="1" addon="CMTV/Code" />
+
+<div class="bbCodeBlock bbCodeBlock--screenLimited bbCodeBlock--code {{ $language ? 'language-' . $language : 'noLang' }} {{ $options.class }}"
+	 data-xf-init="CMTV-code-block">
+	
+	<div class="bbCodeBlock-header">
+		<div class="bbCodeBlock-title">
+			<span title="{{ $options.title ? $config.phrase ?: phrase('code') : '' }}">
+				{{ $options.title ?: $config.phrase ?: phrase('code') }}{$xf.language.label_separator}
+			</span>
+		</div>
+		
+		<div class="bbCodeBlock-actions">
+			<xf:fa icon="fa-expand-alt" title="{{ phrase('CMTV_Code_expand') }}" class="action action--expand action--hidden" 
+				   data-xf-init="tooltip" data-xf-click="CMTV-code-block-expand" />
+			
+			<xf:fa icon="fa-compress-alt" title="{{ phrase('CMTV_Code_collapse') }}" class="action action--collapse action--hidden" 
+				   data-xf-init="tooltip" data-xf-click="CMTV-code-block-collapse" />
+			
+			<xf:fa icon="fa-paste" title="{{ phrase('CMTV_Code_copy') }}" class="action action--copy" 
+				   data-xf-init="tooltip" />
+		</div>
+	</div>
+	
+	<div class="bbCodeBlock-content" dir="ltr">
+		<pre class="bbCodeCode {{ $xf.options.CMTV_Code_lineNumbers_enabled ? 'line-numbers' . (!$language ? ' language-none' : '') : ''  }}" dir="ltr" data-line="{$options.highlight}" data-xf-init="CMTV-code-block-extend" data-lang="{{ $language ?: '' }}"><code>{$content}</code></pre>
+	</div>
+	
+	<div class="bbCodeBlock-grip resizer--hidden" data-xf-init="CMTV-code-block-resizer">
+		<xf:fa icon="fa-grip-horizontal" />
+	</div>
+</div>]]></template>
+  <template type="public" title="CMTV_Code_code_block.less" version_id="2010070" version_string="2.1.0"><![CDATA[body.CMTV_Code_resizing *
+{
+	cursor: ns-resize !important;
+}
+
+.bbCodeBlock--code.bbCodeBlock--screenLimited
+{
+	.bbCodeBlock-header
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		flex-wrap: wrap;
+	
+		background: xf-diminish(@xf-contentAltBg, 2%);
+		border-bottom: 1px solid @xf-borderColorFaint;		
+
+		.bbCodeBlock-title
+		{
+			flex: 1;
+		}
+		
+		.bbCodeBlock-actions
+		{
+			display: flex;
+			padding-right: @xf-paddingLarge - @xf-paddingMedium;
+			
+			.action
+			{
+				color: @xf-textColorMuted;
+				padding: @xf-paddingMedium;
+				
+				transition: color .2s;
+				
+				&:hover, &:focus
+				{
+					cursor: pointer;
+					color: @xf-textColor;
+				}
+				
+				&:active
+				{
+					transition: color 0s;
+					color: @xf-textColorAttention;
+				}
+				
+				&.action--hidden
+				{
+					display: none;
+				}
+			}
+		}
+	}
+	
+	.bbCodeBlock-content
+	{
+		max-height: @xf-CMTV_Code_code_block_max_height;
+		
+		&::-webkit-scrollbar
+		{
+			width: 0.9em;
+			height: 0.9em;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb
+		{		
+			background-color: fade(@xf-borderColor, 60%);
+		}
+
+		&::-webkit-scrollbar-corner
+		{
+			background-color: fade(@xf-borderColor, 60%);
+		}
+	}
+
+	.bbCodeBlock-grip
+	{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		height: 20px;
+		border-top: 1px solid @xf-borderColorFaint;
+		background: xf-diminish(@xf-contentAltBg, 2%);
+		
+		color: @xf-textColorMuted;
+		transition: color .2s;
+		
+		&:hover
+		{
+			cursor: ns-resize;
+			color: @xf-textColorDimmed;
+		}
+		
+		&.resizer--hidden
+		{
+			display: none;
+		}
+	}
+}]]></template>
+</templates>

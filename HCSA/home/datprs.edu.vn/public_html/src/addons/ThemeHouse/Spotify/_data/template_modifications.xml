@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_privacy" modification_key="th_spotify_account_privacy" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[</xf:formrow>]]></find>
+    <replace><![CDATA[<xf:include template="th_spotify_account_privacy" />
+$0]]></replace>
+  </modification>
+  <modification type="public" template="core_button.less" modification_key="thspotify_core_button" description="Adds styling for the Spotify login button" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/\t\t&--yahoo/s]]></find>
+    <replace><![CDATA[
+		&--thspotify {
+			.m-buttonColorVariation(#1DB954, white);
+			.m-buttonIcon(@fa-var-spotify, .86em);
+		}
+
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="helper_js_global" modification_key="thspotify_helper_js_global" description="Load spotify.js" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--XF:JS-->]]></find>
+    <replace><![CDATA[$0
+
+<xf:macro template="thspotify_spotify_macros" name="global_js" />]]></replace>
+  </modification>
+  <modification type="public" template="member_tooltip" modification_key="thspotify_member_tooltip" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/{{ phrase\('last_seen'\) }}(.*?)<\/xf:if>/s]]></find>
+    <replace><![CDATA[$0
+
+<xf:macro template="thspotify_spotify_macros" name="member_tooltip" arg-user="{$user}" />]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="thspotify_member_view" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/{{ phrase\('last_seen'\) }}(.*?)<\/xf:if>/s]]></find>
+    <replace><![CDATA[$0
+
+<xf:macro template="thspotify_spotify_macros" name="member_view" arg-user="{$user}" />]]></replace>
+  </modification>
+  <modification type="public" template="message_macros" modification_key="th_message_macros_spotify" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<span class="message-userArrow"></span>]]></find>
+    <replace><![CDATA[<xf:macro template="thspotify_spotify_macros" name="message_user_info" arg-user="{$user}" arg-extras="{$extras}" />
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="style_property_template_messageUserElements" modification_key="th_spotify_messageUserElements" description="Adds additional message user elements for Spotify" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[</xf:checkboxrow>]]></find>
+    <replace><![CDATA[	<xf:option name="{$formBaseKey}[thspotify]" selected="{$property.property_value.thspotify}">
+		{{ phrase('thspotify_listening_to_spotify') }}
+	</xf:option>
+	<xf:option name="{$formBaseKey}[th_spotify_playback]" selected="{$property.property_value.th_spotify_playback}">
+		{{ phrase('th_spotify_playing_details') }}
+	</xf:option>
+
+$0]]></replace>
+  </modification>
+</template_modifications>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="node_background" version_id="1000070" version_string="1.0.0"><![CDATA[Node background]]></phrase>
+  <phrase title="style_prop.discussionList_lastpost_avatar" version_id="1000070" version_string="1.0.0"><![CDATA[Show avatar of who last posted]]></phrase>
+  <phrase title="style_prop.nodeList_lastpost_avatar" version_id="1000070" version_string="1.0.0"><![CDATA[Enable Last Poster Avatar]]></phrase>
+  <phrase title="style_prop_desc.discussionList_lastpost_avatar" version_id="1000070" version_string="1.0.0"><![CDATA[Shows avatar in the last post block in thread list items.]]></phrase>
+  <phrase title="style_prop_desc.nodeList_lastpost_avatar" version_id="1000070" version_string="1.0.0"><![CDATA[Shows avatar in the last post section.]]></phrase>
+</phrases>

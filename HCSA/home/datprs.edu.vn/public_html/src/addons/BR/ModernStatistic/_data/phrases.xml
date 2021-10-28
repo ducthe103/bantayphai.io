@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.brmsStatistics" version_id="3000030" version_string="3.0.0"><![CDATA[Modern statistics]]></phrase>
+  <phrase title="brc_top_poorest" version_id="3000030" version_string="3.0.0"><![CDATA[Top poorest]]></phrase>
+  <phrase title="brc_top_richest" version_id="3000030" version_string="3.0.0"><![CDATA[Top richest]]></phrase>
+  <phrase title="brms_active" version_id="110" version_string="1.1.0"><![CDATA[Active]]></phrase>
+  <phrase title="brms_add_modern_statistic" version_id="3000030" version_string="3.0.0"><![CDATA[Add modern statistic]]></phrase>
+  <phrase title="brms_add_more_tab" version_id="3000030" version_string="3.0.0"><![CDATA[Add more tab]]></phrase>
+  <phrase title="brms_allow_change_layout" version_id="1080100" version_string="1.8.1"><![CDATA[Allow Member Change Layout]]></phrase>
+  <phrase title="brms_allow_change_layout_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Allow member to change layout of statistics]]></phrase>
+  <phrase title="brms_allow_manual_refresh" version_id="1080100" version_string="1.8.1"><![CDATA[Allow Member Refresh Statistic Manual]]></phrase>
+  <phrase title="brms_allow_manual_refresh_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Allow member to refresh statistics manual]]></phrase>
+  <phrase title="brms_allow_member_change_item_limit" version_id="2050000" version_string="2.5.0"><![CDATA[Allow member change item limit]]></phrase>
+  <phrase title="brms_allow_member_setting" version_id="2020100" version_string="2.2.1"><![CDATA[Allow Member Setting]]></phrase>
+  <phrase title="brms_allow_member_setting_explain" version_id="2020100" version_string="2.2.1"><![CDATA[Allow member to show or hide this modern statistic]]></phrase>
+  <phrase title="brms_categories" version_id="2020300" version_string="2.2.3"><![CDATA[Categories]]></phrase>
+  <phrase title="brms_content_loading" version_id="100" version_string="1.0.0"><![CDATA[Content Loading]]></phrase>
+  <phrase title="brms_control_navigation_position" version_id="1080100" version_string="1.8.1"><![CDATA[Control Navigation Position]]></phrase>
+  <phrase title="brms_control_navigation_position_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Position for control navigation]]></phrase>
+  <phrase title="brms_custom_preview" version_id="1050200" version_string="1.5.2"><![CDATA[Custom Preview]]></phrase>
+  <phrase title="brms_dark" version_id="1050200" version_string="1.5.2"><![CDATA[Dark]]></phrase>
+  <phrase title="brms_delete_modern_statistic" version_id="3000030" version_string="3.0.0"><![CDATA[Delete modern statistic]]></phrase>
+  <phrase title="brms_delete_promote" version_id="2040400" version_string="2.4.4"><![CDATA[Delete Promote]]></phrase>
+  <phrase title="brms_display_this_statistic_while" version_id="2000000" version_string="2.0.0"><![CDATA[Display This Statistic While...]]></phrase>
+  <phrase title="brms_edit_modern_statistic" version_id="1080100" version_string="1.8.1"><![CDATA[Edit Modern Statistic]]></phrase>
+  <phrase title="brms_entries" version_id="100" version_string="1.0.0"><![CDATA[Entries]]></phrase>
+  <phrase title="brms_exclude_groups" version_id="2000000" version_string="2.0.0"><![CDATA[Exclude Groups]]></phrase>
+  <phrase title="brms_exclude_groups_explain" version_id="2000000" version_string="2.0.0"><![CDATA[Which groups would you like to be hide this statistic.]]></phrase>
+  <phrase title="brms_extra" version_id="3000030" version_string="3.0.0"><![CDATA[Extra]]></phrase>
+  <phrase title="brms_inactive" version_id="2000000" version_string="2.0.0"><![CDATA[Inactive]]></phrase>
+  <phrase title="brms_include_nodes" version_id="2000000" version_string="2.0.0"><![CDATA[Include Nodes]]></phrase>
+  <phrase title="brms_item_limits" version_id="1080100" version_string="1.8.1"><![CDATA[Item Limits]]></phrase>
+  <phrase title="brms_item_limits_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Number of threads that will be displayed. Choosing this value higher will use more server resources.]]></phrase>
+  <phrase title="brms_latest_banned_members" version_id="2000000" version_string="2.0.0"><![CDATA[Latest Banned Members]]></phrase>
+  <phrase title="brms_latest_members" version_id="2000000" version_string="2.0.0"><![CDATA[Latest Members]]></phrase>
+  <phrase title="brms_latest_profile_posts" version_id="2050000" version_string="2.5.0"><![CDATA[Latest Profile Posts]]></phrase>
+  <phrase title="brms_latest_replies" version_id="100" version_string="1.0.0"><![CDATA[Latest Replies]]></phrase>
+  <phrase title="brms_latest_threads" version_id="1020000" version_string="1.2.0"><![CDATA[Latest Threads]]></phrase>
+  <phrase title="brms_latest_updates" version_id="3000030" version_string="3.0.0"><![CDATA[Latest updates]]></phrase>
+  <phrase title="brms_light" version_id="1050200" version_string="1.5.2"><![CDATA[Light]]></phrase>
+  <phrase title="brms_load_fisrt_tab_promptly" version_id="1080100" version_string="1.8.1"><![CDATA[Load First Tab Promptly]]></phrase>
+  <phrase title="brms_load_fisrt_tab_promptly_explain" version_id="1080100" version_string="1.8.1"><![CDATA[If enabled the first tab will load with template on the first time. Otherwise this will load with AJAX.]]></phrase>
+  <phrase title="brms_modern_criteria_language_ids_explain" version_id="2040300" version_string="2.4.3"><![CDATA[Select languages you want to display this. If not it will display with all languages.]]></phrase>
+  <phrase title="brms_modern_criteria_node_ids_explain" version_id="2000000" version_string="2.0.0"><![CDATA[If hook and template is node content like Forum list page, Forum view page, Thread view page, Category view page.... Select node you want to display this. If not it will display with all node.
+=> Select the forums you want to display statistics while hooks and templates are node content (forum_list, forum_view, thread_view, category_view...). <br/>Leave nothing selected to include all forums.]]></phrase>
+  <phrase title="brms_modern_criteria_template_name_explain" version_id="3000030" version_string="3.0.0"><![CDATA[Input list of templates that you want to display in with statistic's positions. <br/>
+You can leave it blank to display in all templates that contain position. <br/>
+Use spaces or line break between templates. <br/>
+For example: <br/>
+- forum_list (the index page)<br/>
+- forum_view (the individual forum page)<br/>
+- thread_view (the thread page)<br/>
+- member_view (the individual member page)<br/>]]></phrase>
+  <phrase title="brms_modern_statistic_information" version_id="1080100" version_string="1.8.1"><![CDATA[Modern Statistic Information]]></phrase>
+  <phrase title="brms_modern_statistics" version_id="1080100" version_string="1.8.1"><![CDATA[Modern Statistics]]></phrase>
+  <phrase title="brms_modern_statistics_preferences" version_id="2050000" version_string="2.5.0"><![CDATA[Modern Statistics Preferences]]></phrase>
+  <phrase title="brms_most_downloaded" version_id="3000030" version_string="3.0.0"><![CDATA[Most downloaded]]></phrase>
+  <phrase title="brms_most_likes" version_id="3000030" version_string="3.0.0"><![CDATA[Most likes]]></phrase>
+  <phrase title="brms_most_messages" version_id="3000030" version_string="3.0.0"><![CDATA[Most messages]]></phrase>
+  <phrase title="brms_most_points" version_id="3000030" version_string="3.0.0"><![CDATA[Most points]]></phrase>
+  <phrase title="brms_most_reaction_scores" version_id="3010071" version_string="3.1.0"><![CDATA[Most Reaction Scores Point]]></phrase>
+  <phrase title="brms_most_replied_threads" version_id="100" version_string="1.0.0"><![CDATA[Most Replied Threads]]></phrase>
+  <phrase title="brms_most_resources" version_id="3000030" version_string="3.0.0"><![CDATA[Most resources]]></phrase>
+  <phrase title="brms_most_viewed_threads" version_id="100" version_string="1.0.0"><![CDATA[Most Viewed Threads]]></phrase>
+  <phrase title="brms_must_have_value_for_item_limit" version_id="110" version_string="1.1.0"><![CDATA[Sorry, you must enter at least one value for item limit options]]></phrase>
+  <phrase title="brms_must_select_currency" version_id="2010000" version_string="2.1.0"><![CDATA[You must select currency for richest or poorest users.]]></phrase>
+  <phrase title="brms_my_threads" version_id="1050000" version_string="1.5.0"><![CDATA[My Threads]]></phrase>
+  <phrase title="brms_newest_resources" version_id="3000030" version_string="3.0.0"><![CDATA[Newest resources]]></phrase>
+  <phrase title="brms_no_modern_statistics_have_been_created_yet" version_id="2000000" version_string="2.0.0"><![CDATA[No modern statistics have been created yet.]]></phrase>
+  <phrase title="brms_please_select_at_least_one_tab" version_id="1080100" version_string="1.8.1"><![CDATA[Please select at least one tab]]></phrase>
+  <phrase title="brms_please_select_valid_position_to_display" version_id="1080100" version_string="1.8.1"><![CDATA[Please select valid position to display]]></phrase>
+  <phrase title="brms_position_explain" version_id="2000000" version_string="2.0.0"><![CDATA[Input list of hooks where Modern Statistic will be displayed on. Use spaces or line break between positions. <br/>
+For example: <br/>
+- "page_container_content_top" statistics visible at the top of the page.<br/>
+- "ad_below_top_breadcrumb" statistics visible at below top breadcrumb.<br/>
+- "page_container_content_title_bar" statistics visible at below page title.<br/>
+- "ad_sidebar_top" statistic visible at the top of the sidebar.<br/>]]></phrase>
+  <phrase title="brms_profile_post_type" version_id="2050000" version_string="2.5.0"><![CDATA[Profile Post Type]]></phrase>
+  <phrase title="brms_promote_date" version_id="2040400" version_string="2.4.4"><![CDATA[Promote Date]]></phrase>
+  <phrase title="brms_promote_date_hint" version_id="2040400" version_string="2.4.4"><![CDATA[Promotion threads are ordered by promotion date.]]></phrase>
+  <phrase title="brms_promote_thread" version_id="2040300" version_string="2.4.3"><![CDATA[Promote Thread]]></phrase>
+  <phrase title="brms_promoted_threads" version_id="2040400" version_string="2.4.4"><![CDATA[Promoted Threads]]></phrase>
+  <phrase title="brms_resource_type" version_id="2020300" version_string="2.2.3"><![CDATA[Resource Type]]></phrase>
+  <phrase title="brms_show_resource_prefix" version_id="1080100" version_string="1.8.1"><![CDATA[Show Resource prefix]]></phrase>
+  <phrase title="brms_show_resource_prefix_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Enable this option will use more server resources]]></phrase>
+  <phrase title="brms_show_thread_prefix" version_id="1080100" version_string="1.8.1"><![CDATA[Show Thread prefix]]></phrase>
+  <phrase title="brms_show_thread_prefix_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Enable this option will use more server resources]]></phrase>
+  <phrase title="brms_staff_members" version_id="3000030" version_string="3.0.0"><![CDATA[Staff members]]></phrase>
+  <phrase title="brms_sticky_threads" version_id="1050200" version_string="1.5.2"><![CDATA[Sticky Threads]]></phrase>
+  <phrase title="brms_style" version_id="3000030" version_string="3.0.0"><![CDATA[Style]]></phrase>
+  <phrase title="brms_style_display" version_id="1080100" version_string="1.8.1"><![CDATA[Style Display]]></phrase>
+  <phrase title="brms_style_display_explain" version_id="1080100" version_string="1.8.1"><![CDATA[For compatible with other forum color]]></phrase>
+  <phrase title="brms_style_for_board_style" version_id="2020000" version_string="2.2.0"><![CDATA[Style for Board Style]]></phrase>
+  <phrase title="brms_tab_type" version_id="2020300" version_string="2.2.3"><![CDATA[Tab Type]]></phrase>
+  <phrase title="brms_tabs_cache_time" version_id="1080100" version_string="1.8.1"><![CDATA[Tabs Cache Time]]></phrase>
+  <phrase title="brms_tabs_cache_time_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Tabs will cache with specify user. Enter number of minutes of caching time. If enabled, Update Time and Custom Item Limit will be disabled. Tabs will load with default value for item limit.]]></phrase>
+  <phrase title="brms_tabs_data" version_id="1080100" version_string="1.8.1"><![CDATA[Tabs Data]]></phrase>
+  <phrase title="brms_tabs_selector" version_id="1080100" version_string="1.8.1"><![CDATA[Tabs Selector
+]]></phrase>
+  <phrase title="brms_template_title" version_id="3000030" version_string="3.0.0"><![CDATA[Template title]]></phrase>
+  <phrase title="brms_thread_date_cut_off" version_id="1060000" version_string="1.6.0"><![CDATA[Thread Date Cut Off]]></phrase>
+  <phrase title="brms_thread_date_cut_off_default" version_id="1080100" version_string="1.8.1"><![CDATA[Thread Date Cut Off Default]]></phrase>
+  <phrase title="brms_thread_date_cut_off_default_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Enter the number of days to cut off the list of most view and most reply threads. Enter 0 If you want to include all threads from beginning.]]></phrase>
+  <phrase title="brms_thread_preview" version_id="1050200" version_string="1.5.2"><![CDATA[Thread Preview]]></phrase>
+  <phrase title="brms_thread_type" version_id="2020300" version_string="2.2.3"><![CDATA[Thread Type]]></phrase>
+  <phrase title="brms_toggle_collapse" version_id="2030000" version_string="2.3.0"><![CDATA[Toggle Collapse]]></phrase>
+  <phrase title="brms_update_time" version_id="1080100" version_string="1.8.1"><![CDATA[Update Time]]></phrase>
+  <phrase title="brms_update_time_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Specify time to update statistic content.]]></phrase>
+  <phrase title="brms_use_preview_tooltip" version_id="1080100" version_string="1.8.1"><![CDATA[Use Preview Tooltip]]></phrase>
+  <phrase title="brms_use_preview_tooltip_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Show thread preview tooltips]]></phrase>
+  <phrase title="brms_user_type" version_id="2020300" version_string="2.2.3"><![CDATA[User Type]]></phrase>
+  <phrase title="brms_username_make_up" version_id="1080100" version_string="1.8.1"><![CDATA[Username Make Up]]></phrase>
+  <phrase title="brms_username_make_up_explain" version_id="1080100" version_string="1.8.1"><![CDATA[Display username with user group's css.]]></phrase>
+  <phrase title="brms_your_profile_posts" version_id="2050000" version_string="2.5.0"><![CDATA[Your Profile Posts]]></phrase>
+  <phrase title="most_downloaded" version_id="3000030" version_string="3.0.0"><![CDATA[Most downloaded]]></phrase>
+  <phrase title="newest_resources" version_id="3000030" version_string="3.0.0"><![CDATA[Newest resources]]></phrase>
+  <phrase title="permission.BR_ModernStatistics_BRMS_allowPreference" version_id="3000030" version_string="3.0.0"><![CDATA[Allow change statistics preferences]]></phrase>
+  <phrase title="permission.forum_BRMS_promoteThread" version_id="3000030" version_string="3.0.0"><![CDATA[Allow promote thread]]></phrase>
+  <phrase title="permission_interface.BR_ModernStatistics" version_id="3000030" version_string="3.0.0"><![CDATA[Brivium - Modern statistics permisisons]]></phrase>
+  <phrase title="top_resources" version_id="3000030" version_string="3.0.0"><![CDATA[Top resources]]></phrase>
+</phrases>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="BR_ModernStatistics" permission_id="BRMS_allowPreference" permission_type="flag" interface_group_id="BR_ModernStatistics" display_order="10"/>
+  <permission permission_group_id="forum" permission_id="BRMS_promoteThread" permission_type="flag" interface_group_id="BR_ModernStatistics" display_order="20"/>
+</permissions>

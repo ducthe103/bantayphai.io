@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="th_spotify_showPlaybackDetailsMemberTooltip" group_name="th_spotify" title="Show playback details on member tooltip" property_type="value" value_type="boolean" display_order="10">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="th_spotify_showPlaybackDetailsMemberView" group_name="th_spotify" title="Show playback details on member view" property_type="value" value_type="boolean" display_order="20">
+    <value>0</value>
+  </style_property>
+  <style_property property_name="th_spotify_showPlaybackMemberTooltip" group_name="th_spotify" title="Show playback on member tooltip" property_type="value" value_type="boolean" display_order="5">
+    <value>1</value>
+  </style_property>
+  <style_property property_name="th_spotify_showPlaybackMemberView" group_name="th_spotify" title="Show playback on member view" property_type="value" value_type="boolean" display_order="15">
+    <value>1</value>
+  </style_property>
+</style_properties>

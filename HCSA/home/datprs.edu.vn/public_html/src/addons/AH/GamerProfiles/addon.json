@@ -1,0 +1,19 @@
+{
+    "legacy_addon_id": "",
+    "title": "[AH] Gamer Profiles",
+    "description": "Display gamer profiles in various areas.",
+    "version_id": 215,
+    "version_string": "2.1.5",
+    "dev": "Matt C.",
+    "dev_url": "https://xenforo.com/community/members/matt-c.157252/",
+    "faq_url": "https://xenforo.com/community/resources/ah-gamer-profiles.6822/field?field=faq",
+    "support_url": "https://xenforo.com/community/threads/ah-gamer-profiles.156864/",
+    "extra_urls": [],
+    "require": {
+        "XF": [
+            2010010,
+            "XenForo 2.1.0+"
+        ]
+    },
+    "icon": "fa-gamepad"
+}

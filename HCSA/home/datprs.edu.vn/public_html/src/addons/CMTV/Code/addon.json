@@ -1,0 +1,26 @@
+{
+    "legacy_addon_id": "",
+    "title": "Code",
+    "description": "Makes [code] bbcode and code editor way more functional by adding copy, expand, collapse buttons, resizer bar, code line numbers and ability to highlight lines.",
+    "version_id": 2010270,
+    "version_string": "2.1.2",
+    "dev": "CMTV",
+    "dev_url": "https://xenforo.com/community/members/cmtv.162075/",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": {
+        "My addons & tutorials": "https://xenforo.com/community/resources/authors/cmtv.162075/",
+        "Support me!": "https://www.patreon.com/cmtv"
+    },
+    "require": {
+        "XF": [
+            2010070,
+            "XenForo 2.1"
+        ],
+        "php": [
+            "7.0.0",
+            "PHP 7+"
+        ]
+    },
+    "icon": "fa-code"
+}

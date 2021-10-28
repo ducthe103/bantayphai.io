@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="con_acc.thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Spotify]]></phrase>
+  <phrase title="con_acc_desc.thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="con_acc_thspotify_client_id_explain" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Entering a client ID will allow users to log in using their Spotify accounts. You can get a client ID via Spotify's <a href="https://developer.spotify.com/" target="_blank">Developer Console</a>]]></phrase>
+  <phrase title="con_acc_thspotify_client_secret_explain" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[The secret that corresponds to your Spotify client ID.]]></phrase>
+  <phrase title="option.thspotify_pollRate" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Poll rate]]></phrase>
+  <phrase title="option_explain.thspotify_pollRate" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[The poll rate to update current track (in milliseconds)]]></phrase>
+  <phrase title="option_group.thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[[TH] Spotify]]></phrase>
+  <phrase title="option_group_description.thspotify" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[]]></phrase>
+  <phrase title="style_prop.th_spotify_showPlaybackDetailsMemberTooltip" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Show playback details on member tooltip]]></phrase>
+  <phrase title="style_prop.th_spotify_showPlaybackDetailsMemberView" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Show playback details on member view]]></phrase>
+  <phrase title="style_prop.th_spotify_showPlaybackMemberTooltip" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Show playback on member tooltip]]></phrase>
+  <phrase title="style_prop.th_spotify_showPlaybackMemberView" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Show playback on member view]]></phrase>
+  <phrase title="style_prop_desc.th_spotify_showPlaybackDetailsMemberTooltip" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.th_spotify_showPlaybackDetailsMemberView" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.th_spotify_showPlaybackMemberTooltip" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.th_spotify_showPlaybackMemberView" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group.th_spotify" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[[TH] Spotify]]></phrase>
+  <phrase title="style_prop_group_desc.th_spotify" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[]]></phrase>
+  <phrase title="th_spotify_allow_view_playing" version_id="1000231" version_string="1.0.2 Beta 1"><![CDATA[View currently playing track]]></phrase>
+  <phrase title="th_spotify_listening_to" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Listening to]]></phrase>
+  <phrase title="th_spotify_member_limits_viewing_playback" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[This member limits who may view their Spotify playback.]]></phrase>
+  <phrase title="th_spotify_playing_details" version_id="1000111" version_string="1.0.1 Alpha 1"><![CDATA[Spotify playback details]]></phrase>
+  <phrase title="th_spotify_view_currently_playing_track" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[View currently playing track]]></phrase>
+  <phrase title="thspotify_by_x" version_id="1000270" version_string="1.0.2"><![CDATA[By: {artist}]]></phrase>
+  <phrase title="thspotify_listening_to_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[Listening to Spotify]]></phrase>
+  <phrase title="thspotify_most_played_songs" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Most played songs]]></phrase>
+  <phrase title="thspotify_name_is_not_currently_listening_to_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[{name} is not currently listening to Spotify.]]></phrase>
+  <phrase title="thspotify_spotify_playback" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Spotify playback]]></phrase>
+  <phrase title="thspotify_spotify_playback_for_x" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[Spotify playback for {name}]]></phrase>
+  <phrase title="thspotify_x_has_stopped_their_spotify_player" version_id="1000010" version_string="1.0.0 Alpha"><![CDATA[{name} has stopped their Spotify player.]]></phrase>
+  <phrase title="widget_def.th_most_played_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[[TH] Spotify: Most Played]]></phrase>
+  <phrase title="widget_def.th_now_playing_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[[TH] Spotify: Now Playing]]></phrase>
+  <phrase title="widget_def_desc.th_most_played_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[Displays a block containing a list of X songs which have been played most.]]></phrase>
+  <phrase title="widget_def_desc.th_now_playing_spotify" version_id="1000091" version_string="1.0.0 Patch Level 1"><![CDATA[Displays a block containing a list of X songs which have most recently been played.]]></phrase>
+</phrases>

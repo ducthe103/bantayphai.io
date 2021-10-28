@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="mmo_verified" version_id="2000070" version_string="2.0.0"><![CDATA[Verified]]></phrase>
+  <phrase title="mvb_latest_verified_member" version_id="2000270" version_string="2.0.2"><![CDATA[Latest Verified Member]]></phrase>
+  <phrase title="mvb_no_verified_users" version_id="2000270" version_string="2.0.2"><![CDATA[Not yet verified users]]></phrase>
+  <phrase title="mvb_rules_link_title" version_id="2000270" version_string="2.0.2"><![CDATA[Rules for obtaining official status for profiles]]></phrase>
+  <phrase title="mvb_tooltip_description" version_id="2000270" version_string="2.0.2"><![CDATA[{username} is verified member.]]></phrase>
+  <phrase title="mvb_user_edit_verified" version_id="2000270" version_string="2.0.2"><![CDATA[Verified]]></phrase>
+  <phrase title="mvb_verification_explain" version_id="2000270" version_string="2.0.2"><![CDATA[Verification - checking the profile for authenticity and compliance with the person. A distinctive sign of successful verification is a checkmark located to the right of the user name.]]></phrase>
+  <phrase title="mvb_verification_rules" version_id="2000270" version_string="2.0.2"><![CDATA[1. An important condition is the availability of unique content, community and its regular update. Links to third-party resources and the presence of any reposts, or refuse them normally. At the same time, any links and links to other social networks and services, as well as streaming resources are located in a special “Links” sidebar.<br/>
+2. <b>Forbidden: the publication of spam, malicious links, mass mentioning or sending invitations and messages, artificial increase of indicators.</b><br/>
+3. The profile should be updated periodically.<br/>
+4. If you are sitting under a VPN, proxy, etc., then provide one of the administrators in a personal message with your real IP address. <br/>
+6. Profile should not contain points of warnings, violations, complaints to arbitration. <br/>
+7. The absence of multi-accounts, except for situations that were allowed by the administration. <br/>
+8. There should be more than 100 messages. <br/>]]></phrase>
+  <phrase title="mvb_verified_members" version_id="2000270" version_string="2.0.2"><![CDATA[Verified Members]]></phrase>
+</phrases>

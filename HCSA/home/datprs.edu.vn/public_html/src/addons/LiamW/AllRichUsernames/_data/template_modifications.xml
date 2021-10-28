@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="liamw_allrichusernames_copyright" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[{{ phrase('extra_copyright') }}]]></find>
+    <replace><![CDATA[$0
+{{ liamwCopyright() }}]]></replace>
+  </modification>
+  <modification type="public" template="thread_list_macros" modification_key="liamw_allrichusernames_thread_list_macros" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<li>{{ phrase('latest_x', {'name': $thread.last_post_cache.username}) }}</li>]]></find>
+    <replace><![CDATA[<li>{{ phrase('latest_x', {'name': username_link($thread.LastPoster)}) }}</li>]]></replace>
+  </modification>
+  <modification type="public" template="xfrm_resource_list_macros" modification_key="liamw_allrichusernames_xfrm_resource_list_macros" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<li>{{ $resource.User.username ?: $resource.username }}</li>]]></find>
+    <replace><![CDATA[<li>{{ username_link($resource.User, {'defaultname': $resource.username}) }}</li>]]></replace>
+  </modification>
+</template_modifications>

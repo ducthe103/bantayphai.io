@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_preferences" modification_key="brms_account_preferences" description="Add modern statistics preference" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[/<h2[^>]+block-formSectionHeader[^>]+>.*<\/h2>/isU]]></find>
+    <replace><![CDATA[<xf:include template="brms_account_preferences" />
+$0]]></replace>
+  </modification>
+  <modification type="public" template="helper_js_global" modification_key="brms_helper_js_global" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--XF:JS-->]]></find>
+    <replace><![CDATA[$0<script>jQuery.extend(XF.phrases, {
+		brms_category:       "{{ phrase('category')|escape('js') }}",
+		brms_download:       "{{ phrase('download')|escape('js') }}",
+		brms_update:         "{{ phrase('update')|escape('js') }}",
+		brms_review:         "{{ phrase('review')|escape('js') }}",
+		brms_rating: "{{ phrase('rating')|escape('js') }}",
+		brms_forum:          "{{ phrase('forum')|escape('js') }}",
+		brms_views:          "{{ phrase('views')|escape('js') }}",
+		brms_replies:        "{{ phrase('replies')|escape('js') }}",
+		brms_likes:          "{{ phrase('likes')|escape('js') }}",
+});
+</script>]]></replace>
+  </modification>
+  <modification type="public" template="thread_view" modification_key="brms_thread_view" description="Add promote button" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:thread_tools_menu:before_footer]-->]]></find>
+    <replace><![CDATA[<xf:include template="brms_thread_tools_menu" />$0]]></replace>
+  </modification>
+</template_modifications>

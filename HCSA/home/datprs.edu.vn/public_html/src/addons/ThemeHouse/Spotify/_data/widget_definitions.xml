@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget_definitions>
+  <widget_definition definition_id="th_most_played_spotify" definition_class="ThemeHouse\Spotify\Widget\MostPlayed"/>
+  <widget_definition definition_id="th_now_playing_spotify" definition_class="ThemeHouse\Spotify\Widget\NowPlaying"/>
+</widget_definitions>

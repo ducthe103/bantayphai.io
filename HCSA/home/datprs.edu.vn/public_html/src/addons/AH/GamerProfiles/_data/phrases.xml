@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="ah_gamerprofiles_member_view_tab" version_id="1" version_string="1.0.0"><![CDATA[Gamer cards]]></phrase>
+  <phrase title="ah_gamerprofiles_signature_code" version_id="1" version_string="1.0.0"><![CDATA[Signature code]]></phrase>
+  <phrase title="ah_gamerprofiles_xs_gamercards" version_id="1" version_string="1.0.0"><![CDATA[{name}'s gamer cards]]></phrase>
+  <phrase title="ah_gp_battlenet" version_id="205" version_string="2.0.5"><![CDATA[Battle.net]]></phrase>
+  <phrase title="ah_gp_discord" version_id="1" version_string="1.0.0"><![CDATA[Discord]]></phrase>
+  <phrase title="ah_gp_epicgames" version_id="205" version_string="2.0.5"><![CDATA[Epic Games]]></phrase>
+  <phrase title="ah_gp_icons" version_id="1" version_string="1.0.0"><![CDATA[Icons]]></phrase>
+  <phrase title="ah_gp_mixer" version_id="2" version_string="2.0.0"><![CDATA[Mixer]]></phrase>
+  <phrase title="ah_gp_oculus" version_id="213" version_string="2.1.3"><![CDATA[Oculus]]></phrase>
+  <phrase title="ah_gp_origin" version_id="205" version_string="2.0.5"><![CDATA[Origin]]></phrase>
+  <phrase title="ah_gp_playstation" version_id="1" version_string="1.0.0"><![CDATA[PlayStation]]></phrase>
+  <phrase title="ah_gp_secondlife" version_id="211" version_string="2.1.1"><![CDATA[Second Life]]></phrase>
+  <phrase title="ah_gp_steam" version_id="1" version_string="1.0.0"><![CDATA[Steam]]></phrase>
+  <phrase title="ah_gp_twitch" version_id="1" version_string="1.0.0"><![CDATA[Twitch]]></phrase>
+  <phrase title="ah_gp_xbox" version_id="1" version_string="1.0.0"><![CDATA[Xbox]]></phrase>
+  <phrase title="ah_gp_youtube" version_id="1" version_string="1.0.0"><![CDATA[YouTube]]></phrase>
+  <phrase title="ah_mixer" version_id="2" version_string="2.0.0"><![CDATA[Mixer]]></phrase>
+  <phrase title="permission.ahGamerProfiles_canViewGamerCards" version_id="2" version_string="2.0.0"><![CDATA[View member gamer cards]]></phrase>
+  <phrase title="permission.ahGamerProfiles_canViewIcons" version_id="2" version_string="2.0.0"><![CDATA[View gamer profile icons]]></phrase>
+  <phrase title="permission_interface.ahGamerProfiles" version_id="2" version_string="2.0.0"><![CDATA[[AH] Gamer Profiles]]></phrase>
+  <phrase title="style_prop.ahGPBattlenetHeight" version_id="205" version_string="2.0.5"><![CDATA[Battle.net icon height]]></phrase>
+  <phrase title="style_prop.ahGPBattlenetWidth" version_id="205" version_string="2.0.5"><![CDATA[Battle.net icon width]]></phrase>
+  <phrase title="style_prop.ahGPColorBattlenet" version_id="205" version_string="2.0.5"><![CDATA[Battle.net icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorDiscord" version_id="1" version_string="1.0.0"><![CDATA[Discord icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorEpicGames" version_id="205" version_string="2.0.5"><![CDATA[Epic Games icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorFacebook" version_id="2" version_string="2.0.0"><![CDATA[Facebook icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorMixer" version_id="2" version_string="2.0.0"><![CDATA[Mixer icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorOculus" version_id="213" version_string="2.1.3"><![CDATA[Oculus icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorOrigin" version_id="205" version_string="2.0.5"><![CDATA[Origin icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorPlayStation" version_id="1" version_string="1.0.0"><![CDATA[PlayStation icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorSecondLife" version_id="211" version_string="2.1.1"><![CDATA[Second Life icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorSkype" version_id="2" version_string="2.0.0"><![CDATA[Skype icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorSteam" version_id="1" version_string="1.0.0"><![CDATA[Steam icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorTwitch" version_id="1" version_string="1.0.0"><![CDATA[Twitch icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorTwitter" version_id="2" version_string="2.0.0"><![CDATA[Twitter icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorXbox" version_id="1" version_string="1.0.0"><![CDATA[Xbox icon color]]></phrase>
+  <phrase title="style_prop.ahGPColorYouTube" version_id="1" version_string="1.0.0"><![CDATA[YouTube icon color]]></phrase>
+  <phrase title="style_prop.ahGPEpicGamesHeight" version_id="205" version_string="2.0.5"><![CDATA[Epic Games icon height]]></phrase>
+  <phrase title="style_prop.ahGPEpicGamesWidth" version_id="205" version_string="2.0.5"><![CDATA[Epic Games icon width]]></phrase>
+  <phrase title="style_prop.ahGPGamerCardMargin" version_id="203" version_string="2.0.3 Beta"><![CDATA[Gamer card margin-top]]></phrase>
+  <phrase title="style_prop.ahGPIconFontSize" version_id="1" version_string="1.0.0"><![CDATA[Icon font size]]></phrase>
+  <phrase title="style_prop.ahGPIconsContainer" version_id="1" version_string="1.0.0"><![CDATA[Icons container]]></phrase>
+  <phrase title="style_prop.ahGPMemberTooltip" version_id="1" version_string="1.0.0"><![CDATA[Member tooltip container]]></phrase>
+  <phrase title="style_prop.ahGPMessage" version_id="1" version_string="1.0.0"><![CDATA[Message user info container]]></phrase>
+  <phrase title="style_prop.ahGPMixerHeight" version_id="2" version_string="2.0.0"><![CDATA[Mixer icon height]]></phrase>
+  <phrase title="style_prop.ahGPMixerWidth" version_id="2" version_string="2.0.0"><![CDATA[Mixer icon width]]></phrase>
+  <phrase title="style_prop.ahGPOculusHeight" version_id="213" version_string="2.1.3"><![CDATA[Oculus icon height]]></phrase>
+  <phrase title="style_prop.ahGPOculusWidth" version_id="213" version_string="2.1.3"><![CDATA[Oculus icon width]]></phrase>
+  <phrase title="style_prop.ahGPOriginHeight" version_id="205" version_string="2.0.5"><![CDATA[Origin icon height]]></phrase>
+  <phrase title="style_prop.ahGPOriginWidth" version_id="205" version_string="2.0.5"><![CDATA[Origin icon width]]></phrase>
+  <phrase title="style_prop.ahGPSecondLifeHeight" version_id="211" version_string="2.1.1"><![CDATA[Second Life icon height]]></phrase>
+  <phrase title="style_prop.ahGPSecondLifeWidth" version_id="211" version_string="2.1.1"><![CDATA[Second Life icon width]]></phrase>
+  <phrase title="style_prop.ahGPStatus" version_id="1" version_string="1.0.0"><![CDATA[Status]]></phrase>
+  <phrase title="style_prop.ahGPTooltip" version_id="1" version_string="1.0.0"><![CDATA[Display gamer profiles in member tooltip]]></phrase>
+  <phrase title="style_prop_desc.ahGPBattlenetHeight" version_id="205" version_string="2.0.5"><![CDATA[This refers to the height of the Battle.net icon. The Battle.net icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Battle.net icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPBattlenetWidth" version_id="205" version_string="2.0.5"><![CDATA[This refers to the width of the Battle.net icon. The Battle.net icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Battle.net icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorBattlenet" version_id="205" version_string="2.0.5"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorDiscord" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorEpicGames" version_id="205" version_string="2.0.5"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorFacebook" version_id="2" version_string="2.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorMixer" version_id="2" version_string="2.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorOculus" version_id="213" version_string="2.1.3"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorOrigin" version_id="205" version_string="2.0.5"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorPlayStation" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorSecondLife" version_id="211" version_string="2.1.1"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorSkype" version_id="2" version_string="2.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorSteam" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorTwitch" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorTwitter" version_id="2" version_string="2.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorXbox" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPColorYouTube" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPEpicGamesHeight" version_id="205" version_string="2.0.5"><![CDATA[This refers to the height of the Epic Games icon. The Epic Games icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Epic Games icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPEpicGamesWidth" version_id="205" version_string="2.0.5"><![CDATA[This refers to the width of the Epic Games icon. The Epic Games icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Epic Games icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPGamerCardMargin" version_id="203" version_string="2.0.3 Beta"><![CDATA[This adjusts the margin-top property of the gamer card popup. You may have to adjust this depending on how you decide to style the icons in the postbit.]]></phrase>
+  <phrase title="style_prop_desc.ahGPIconFontSize" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_desc.ahGPIconsContainer" version_id="1" version_string="1.0.0"><![CDATA[Affects all icons regardless of placement]]></phrase>
+  <phrase title="style_prop_desc.ahGPMemberTooltip" version_id="1" version_string="1.0.0"><![CDATA[Only affects icons in the member tooltip container]]></phrase>
+  <phrase title="style_prop_desc.ahGPMessage" version_id="1" version_string="1.0.0"><![CDATA[Only affects icons in the message user info]]></phrase>
+  <phrase title="style_prop_desc.ahGPMixerHeight" version_id="205" version_string="2.0.5"><![CDATA[This refers to the height of the Mixer icon. The Mixer icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Mixer icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPMixerWidth" version_id="205" version_string="2.0.5"><![CDATA[This refers to the width of the Mixer icon. The Mixer icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Mixer icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPOculusHeight" version_id="213" version_string="2.1.3"><![CDATA[This refers to the height of the Oculus icon. The Oculus icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Oculus icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPOculusWidth" version_id="213" version_string="2.1.3"><![CDATA[This refers to the width of the Oculus icon. The Oculus icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Oculus icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPOriginHeight" version_id="205" version_string="2.0.5"><![CDATA[This refers to the height of the Origin icon. The Origin icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Origin icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPOriginWidth" version_id="205" version_string="2.0.5"><![CDATA[This refers to the width of the Origin icon. The Origin icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Origin icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPSecondLifeHeight" version_id="211" version_string="2.1.1"><![CDATA[This refers to the height of the Second Life icon. The Second Life icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Second Life icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPSecondLifeWidth" version_id="211" version_string="2.1.1"><![CDATA[This refers to the width of the Second Life icon. The Second Life icon is an SVG, not a FontAwesome Icon, so the "Icon font size" property has no effect on the Second Life icon.]]></phrase>
+  <phrase title="style_prop_desc.ahGPStatus" version_id="1" version_string="1.0.0"><![CDATA[The elements selected here will be displayed in the message user info and member tooltip.]]></phrase>
+  <phrase title="style_prop_desc.ahGPTooltip" version_id="1" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="style_prop_group.ah_gamerprofiles" version_id="1" version_string="1.0.0"><![CDATA[[AH] Gamer Profiles]]></phrase>
+  <phrase title="style_prop_group_desc.ah_gamerprofiles" version_id="1" version_string="1.0.0"><![CDATA[Style properties for [AH] Gamer Profiles]]></phrase>
+  <phrase title="user_field_desc.ah_battlenet" version_id="205" version_string="2.0.5"><![CDATA[Enter your Battletag here]]></phrase>
+  <phrase title="user_field_desc.ah_discord" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter your discord username here]]></phrase>
+  <phrase title="user_field_desc.ah_epicgames" version_id="205" version_string="2.0.5"><![CDATA[Enter your Epic Games username here.]]></phrase>
+  <phrase title="user_field_desc.ah_mixer" version_id="202" version_string="2.0.2 Beta"><![CDATA[Enter your Mixer channel username here.]]></phrase>
+  <phrase title="user_field_desc.ah_oculus" version_id="214" version_string="2.1.4"><![CDATA[Enter your Oculus username here.]]></phrase>
+  <phrase title="user_field_desc.ah_origin" version_id="205" version_string="2.0.5"><![CDATA[Enter your Origin username here]]></phrase>
+  <phrase title="user_field_desc.ah_playstation" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter your PSN ID here to link to your Playstation stats on http://exophase.com]]></phrase>
+  <phrase title="user_field_desc.ah_secondlife" version_id="211" version_string="2.1.1"><![CDATA[Enter your Second Life username here.]]></phrase>
+  <phrase title="user_field_desc.ah_steam" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter your Steam name here to link to your Steam stats on http://exophase.com
+NOTE: This is not your steam username or display name. It is your custom Profile ID. Look at the image for details:: http://prntscr.com/7b2340]]></phrase>
+  <phrase title="user_field_desc.ah_twitch" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter your Twitch username here]]></phrase>
+  <phrase title="user_field_desc.ah_xbox" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter your Xbox Live user ID here to link to your Xbox Live stats on http://exophase.com]]></phrase>
+  <phrase title="user_field_desc.ah_youtube" version_id="201" version_string="2.0.1 Beta"><![CDATA[Enter you YouTube channel username here]]></phrase>
+  <phrase title="user_field_title.ah_battlenet" version_id="205" version_string="2.0.5"><![CDATA[Battle.net]]></phrase>
+  <phrase title="user_field_title.ah_discord" version_id="201" version_string="2.0.1 Beta"><![CDATA[Discord]]></phrase>
+  <phrase title="user_field_title.ah_epicgames" version_id="205" version_string="2.0.5"><![CDATA[Epic Games]]></phrase>
+  <phrase title="user_field_title.ah_mixer" version_id="201" version_string="2.0.1 Beta"><![CDATA[Mixer]]></phrase>
+  <phrase title="user_field_title.ah_oculus" version_id="214" version_string="2.1.4"><![CDATA[Oculus]]></phrase>
+  <phrase title="user_field_title.ah_origin" version_id="205" version_string="2.0.5"><![CDATA[Origin]]></phrase>
+  <phrase title="user_field_title.ah_playstation" version_id="201" version_string="2.0.1 Beta"><![CDATA[PlayStation ID]]></phrase>
+  <phrase title="user_field_title.ah_secondlife" version_id="211" version_string="2.1.1"><![CDATA[Second Life]]></phrase>
+  <phrase title="user_field_title.ah_steam" version_id="201" version_string="2.0.1 Beta"><![CDATA[Steam ID]]></phrase>
+  <phrase title="user_field_title.ah_twitch" version_id="201" version_string="2.0.1 Beta"><![CDATA[Twitch]]></phrase>
+  <phrase title="user_field_title.ah_xbox" version_id="201" version_string="2.0.1 Beta"><![CDATA[Xbox Live Gamertag]]></phrase>
+  <phrase title="user_field_title.ah_youtube" version_id="201" version_string="2.0.1 Beta"><![CDATA[YouTube]]></phrase>
+</phrases>

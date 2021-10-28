@@ -1,0 +1,26 @@
+{
+    "legacy_addon_id": "dbtech_credits",
+    "title": "DragonByte Credits",
+    "description": "A fully features points/credits system allowing your members to earn or buy points.",
+    "version_id": 905030033,
+    "version_string": "5.3.0 Beta 3",
+    "dev": "DragonByte Technologies, Ltd.",
+    "dev_url": "https://www.dragonbyte-tech.com",
+    "faq_url": "",
+    "support_url": "https://www.dragonbyte-tech.com/support/create-ticket",
+    "extra_urls": {
+        "Product Information": "https://www.dragonbyte-tech.com/store/dragonbyte-credits.339/",
+        "Twitter": "https://twitter.com/DragonByteTech"
+    },
+    "require": {
+        "XF": [
+            2010070,
+            "XenForo 2.1.0+"
+        ],
+        "php": [
+            "5.6.0",
+            "PHP 5.6.0+"
+        ]
+    },
+    "icon": "icon.png"
+}

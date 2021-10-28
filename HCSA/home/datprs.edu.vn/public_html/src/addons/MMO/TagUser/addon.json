@@ -1,0 +1,21 @@
+{
+    "legacy_addon_id": "xiTagUser",
+    "title": "[MMO] Tag User",
+    "description": "Quick insertion of the user name into the quick response form.",
+    "version_id": 2010070,
+    "version_string": "2.1.0",
+    "dev": "kick | Captain",
+    "dev_url": "https://mmo-develop.ru",
+    "faq_url": "https://mmo-zone.info",
+    "support_url": "https://mmo-develop.ru",
+    "extra_urls": {
+        "XenForo.Info": "https://xenforo.info/resources/mmo-tag-user.5771/"
+    },
+    "require": {
+        "XF": [
+            2010010,
+            "XenForo 2.1.0+"
+        ]
+    },
+    "icon": "fa-user-circle "
+}
